@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.viewAndEarn.ViewAndEarnActivity">
+
+        <include layout="@layout/tool_bar_colour" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nestedscolling"
+            android:layout_below="@+id/tool_barLayout"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/earn_club_point_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    tools:text="Earn Club Points!"
+                    android:textColor="@color/videoBtn_red"
+                    android:textSize="@dimen/_18sdp" />
+
+                <TextView
+                    android:id="@+id/second_earn_club_point_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="Open Each Post &amp; Collect Points Instantly" />
+
+                <TextView
+                    android:id="@+id/third_earn_club_point_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="center"
+                    android:textColor="@color/black_opacity_pop"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="The more you explore,the more you earn!" />
+
+                <TextView
+                    android:id="@+id/fourth_earn_club_point_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:background="@drawable/background_border_red"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    tools:text="View posts daily and watch your \n Club Points grow!"
+                    android:textColor="@color/videoBtn_red"
+                    android:textSize="@dimen/_14sdp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:src="@drawable/double_down_arrow" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/feed_list_rcv"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:id="@+id/view"
+            />
+    </RelativeLayout>
+</layout>

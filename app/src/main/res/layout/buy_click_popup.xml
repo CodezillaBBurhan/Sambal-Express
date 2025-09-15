@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black_opacity_pop">
+
+
+    <LinearLayout
+        android:id="@+id/main_popup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/buy_card_bg_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="fitXY"
+                    tools:src="@color/colorPrimary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="center"
+                        android:text="Payable Amount"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <TextView
+                        android:id="@+id/payable_amount_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:fontFamily="@font/volte_bold"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_24sdp"
+                        tools:text="£40" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <EditText
+            android:id="@+id/name_on_card_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:hint="Name on Card"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_15sdp" />
+
+        <com.stripe.android.view.CardMultilineWidget
+            android:id="@+id/card_input_widget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/llbluebtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_above="@+id/main_popup_layout"
+        android:background="@android:color/transparent"
+        android:src="@drawable/homewhiteclose" />
+
+
+</RelativeLayout>
+

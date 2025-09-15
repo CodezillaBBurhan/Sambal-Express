@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f7fa"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.ActivityMyRewards">
+
+        <include
+            android:id="@+id/tool_bar1"
+            layout="@layout/new_toolbar_yellow" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:padding="@dimen/_3sdp"
+            android:background="@drawable/llrightarrow_yellow"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivHisto"
+                android:layout_width="@dimen/padding_12dp"
+                android:layout_height="@dimen/padding_12dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/history_1"
+                android:tint="@color/white"
+                android:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/tvHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/volte_semibold"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:text="History"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/ll_location_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_toolbar_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/volte_semibold"
+                    android:text="Location"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:src="@drawable/downarrow"
+                    app:tint="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/store_vocher_top_button_background">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    app:tabBackground="@drawable/tab_state"
+                    app:tabTextAppearance="@style/MineCustomTabText"
+                    app:tabRippleColor="@null"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@android:color/transparent"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextColor="@color/black" />
+                <!--app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"-->
+            </LinearLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_opacity_pop">
+
+
+    <!--  android:background="@color/black_opacity_80"-->
+
+
+    <LinearLayout
+        android:id="@+id/main_popup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/volte_medium"
+            android:text="Enter Mobile Number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/userMobile_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/volte_medium"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            app:drawableLeftCompat="@drawable/ic_phone_dark" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/volte_medium"
+            android:text="Country"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <LinearLayout style="@style/SignUpLinearLayout">
+
+            <!--<ImageView
+                style="@style/SignUpImage"
+                android:src="@drawable/web_white"
+                android:visibility="gone" />-->
+
+            <TextView
+                android:id="@+id/sign_up_country"
+                style="@style/SignUpEditText"
+                android:background="@color/recycler_bg_color"
+                android:drawableLeft="@drawable/ic_flag_dark"
+                android:drawableRight="@drawable/ic_arrow_down"
+                android:drawablePadding="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_medium"
+                android:text="United Kingdom" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/volte_medium"
+            android:text="How much would you like to gift(£)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <sambal.mydd.app.utils.ATMEditText
+            android:id="@+id/gift_amount_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:fontFamily="@font/volte_semibold"
+            android:hint="0.00"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/volte_medium"
+            android:text="Customer has not registered yet. Please send invitation to register"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_13sdp" />
+
+
+        <Button
+            android:id="@+id/btn_send_invitation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/llbluebtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Send Invitation"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/main_popup_layout"
+        android:background="@android:color/transparent"
+        android:src="@drawable/homewhiteclose" />
+
+
+</RelativeLayout>
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding25"
+        android:background="@drawable/lldialogrounded"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Have you got DD Card?"
+            android:textColor="@color/colrpurple"
+            android:textSize="16sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/padding_5dp"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/scanhand" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/padding_15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSkip"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:background="@drawable/llskip"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:text="Skip"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+            <LinearLayout
+                android:id="@+id/llLink"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:background="@drawable/lllinkbn"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAllCaps="false"
+                android:textColor="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:background="@android:color/transparent"
+                    android:text="Link your card"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/volte_bold" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/rightarrowss" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/padding_10dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/padding_7dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="@dimen/padding_15dp"
+            android:layout_height="@dimen/padding_15dp"
+            android:layout_gravity="top|center"
+            android:background="@drawable/llcircleyellow"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/padding_15dp"
+            android:layout_marginBottom="@dimen/padding_3dp"
+            android:layout_weight="1"
+            android:gravity="left|center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvagentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:text="Abhi cash and curry" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_3dp"
+                    android:fontFamily="@font/volte_medium"
+                    android:textColor="#acb1b3"
+                    android:textSize="@dimen/text12_5"
+                    tools:text="April 10, 2019 10:00 PM" />
+
+
+                <TextView
+                    android:id="@+id/tvCollected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textColor="@color/green_opacity_BF"
+                    android:textSize="13sp"
+                    tools:text="Complimentary Voucher" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_semibold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14sdp"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tvPts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/padding_5dp"
+            android:text="pts"
+            android:textColor="#f90d62"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginBottom="@dimen/padding_10dp"
+        android:background="#e6e7ff"
+        android:visibility="gone" />
+
+
+</androidx.cardview.widget.CardView>
+</layout>

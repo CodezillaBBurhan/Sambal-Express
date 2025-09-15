@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/padding_30dp"
+        android:layout_height="@dimen/padding_30dp"
+        android:layout_gravity="right"
+        android:background="@drawable/llclosecirle">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_startup_close" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/lltimedialog_new"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/top_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_medium"
+            android:gravity="center"
+            android:singleLine="false"
+            android:textColor="@color/greenpromo"
+            android:textSize="@dimen/_18sdp"
+            android:visibility="visible"
+            tools:text="Redeem your rewards now" />
+
+        <TextView
+            android:id="@+id/second_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_medium"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="Redeem your rewards now"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_16sdp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_semibold"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="Redeem your rewards now"
+            android:textColor="@color/bluesheme"
+            android:textSize="@dimen/_16sdp"
+            android:visibility="visible" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_5sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/my_pramotion_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.7"
+                        android:fontFamily="@font/volte_semibold"
+                        android:text="My Promotions"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <TextView
+                        android:id="@+id/my_pramotion_view_all_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.3"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="More"
+                        android:textAllCaps="true"
+                        android:textColor="@color/bluesheme"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/my_pramotion_rcv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_3sdp" />
+
+                <LinearLayout
+                    android:id="@+id/my_deal_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_2sdp"
+                    android:visibility="visible"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.7"
+                        android:fontFamily="@font/volte_semibold"
+                        android:text="My Deals"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <TextView
+                        android:id="@+id/my_deals_view_all_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.3"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="More"
+                        android:textAllCaps="true"
+                        android:textColor="@color/bluesheme"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/my_deal_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/my_deals_rcv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp" />
+
+                        <LinearLayout
+                            android:id="@+id/more_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/bg_ticket_grey_btn"
+                            android:backgroundTint="#E5E8EF"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/more_deals_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:drawableRight="@drawable/ic_right_arrow"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:drawableTint="@color/bluesheme"
+                                android:fontFamily="@font/volte_semibold"
+                                android:gravity="center"
+                                android:text="MORE Deals"
+                                android:textColor="@color/bluesheme"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

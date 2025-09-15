@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/padding_30dp"
+        android:layout_height="@dimen/padding_30dp"
+        android:layout_gravity="right"
+        android:background="@drawable/llclosecirle"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/homewhiteclose" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/padding_15dp"
+        android:layout_marginRight="@dimen/padding_15dp"
+        android:background="@drawable/lldialogrounded"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding_7dp"
+            android:layout_marginBottom="@dimen/padding_7dp"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/padding_20dp"
+                    android:layout_height="@dimen/padding_15dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:src="@drawable/edit" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:maxLines="5"
+                    android:text="Edit"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/text12_5"
+                    android:fontFamily="@font/volte_bold"
+                    android:visibility="visible" />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5px"
+            android:background="@color/lightGrayColor" />
+
+        <LinearLayout
+            android:id="@+id/llDelete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/padding_7dp"
+            android:layout_marginBottom="@dimen/padding_7dp"
+            android:background="@drawable/lldialogrounded"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/padding_20dp"
+                    android:layout_height="@dimen/padding_15dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:src="@drawable/delete" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:maxLines="5"
+                    android:text="Delete"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/text12_5"
+                    android:fontFamily="@font/volte_bold"
+                    android:visibility="visible" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/padding_15dp"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginRight="@dimen/padding_15dp"
+        android:layout_marginBottom="@dimen/padding_10dp"
+        android:background="@drawable/lldialogrounded"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ticket_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:maxLines="5"
+            android:text="Cancel"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text12_5"
+            android:fontFamily="@font/volte_bold"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

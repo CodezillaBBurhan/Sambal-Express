@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="#481e5e"
+            android:gravity="center"
+            android:text="Notifications"
+            android:textColor="@color/white"
+            android:textSize="@dimen/heading" />
+
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/padding_20dp"
+            android:layout_height="@dimen/padding_20dp"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/padding_7dp"
+            android:src="@drawable/cross"
+            android:tint="@color/white" />
+
+    </FrameLayout>-->
+
+    <LinearLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-60dp"
+                    android:src="@drawable/nonoti" />
+
+                <TextView
+                    android:id="@+id/msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/volte_semibold"
+                    android:text="You don't have any notifications yet"
+                    android:visibility="visible" />
+
+
+            </FrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:layout_marginBottom="@dimen/padding_10dp" />
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:orientation="vertical"
+                app:duration="800"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+                    <include layout="@layout/notification_list_shimmerview"/>
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/some_thing_went_wrong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_barLayout"
+        android:id="@+id/notification_page_error_layout"/>
+
+</LinearLayout>
+</layout>

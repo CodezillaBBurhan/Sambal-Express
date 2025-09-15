@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_marginVertical="@dimen/_10sdp"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/popup_content_inbold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/padding_5dp"
+            android:gravity="center"
+            android:maxLines="5"
+            android:textColor="@color/black_normal_color"
+            android:textSize="@dimen/sub_heading"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/popup_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLines="5"
+            android:fontFamily="@font/volte_semibold"
+            android:textColor="@color/color_normal_popup_body_txt"
+            android:textSize="@dimen/sub_heading"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/lightGrayColor" />
+
+    <LinearLayout
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_remark"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/popup_yes_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:gravity="center"
+            android:text="@string/continued"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_13sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/custum_near_by_devices_pop_up_btn_bg"
+            />
+
+
+
+        <Button
+            android:id="@+id/popup_do_not_allow_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:gravity="center"
+            android:text="@string/do_not_allow"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_13sdp"
+            android:paddingHorizontal="@dimen/_27sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/custum_near_by_devices_pop_up_btn_bg"
+            />
+
+
+        <Button
+            android:id="@+id/popup_no_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:gravity="center"
+            android:text="@string/cancle"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_13sdp"
+            android:paddingHorizontal="@dimen/_27sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:background="@drawable/custum_near_by_devices_pop_up_btn_bg"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+

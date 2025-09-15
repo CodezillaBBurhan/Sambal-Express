@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+
+    <!--  android:background="@color/black_opacity_80"-->
+
+
+    <LinearLayout
+        android:id="@+id/main_popup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical"
+        android:layout_below="@+id/ivClose"
+        android:padding="@dimen/_20sdp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/ic_gift_sendimage"/>
+
+
+        <TextView
+            android:id="@+id/confimation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/volte_medium"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:gravity="center"
+            tools:text="Are you sure? You want to \ngift £30 to Gopalakannan"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+        <Button
+            android:id="@+id/btn_yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/llbluebtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Yes"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/homewhiteclose" />
+
+
+</RelativeLayout>
+

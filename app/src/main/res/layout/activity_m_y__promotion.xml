@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+
+    tools:context=".activity.MY_PromotionActivity">
+
+    <include layout="@layout/tool_bar_colour" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notification_img"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/_10sdp"
+        app:srcCompat="@drawable/ic_notification_purple" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tool_barLayout"
+        android:background="@color/yellow"
+        android:padding="@dimen/_10sdp"
+        android:id="@+id/search_bar_layout">
+
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/background_selected_white"
+            android:src="@drawable/ic_categories_deals"
+            android:id="@+id/all_category_img" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_selected_white"
+            android:drawableLeft="@drawable/quantum_ic_search_grey600_24"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/black"
+            android:hint="Search here"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            style="@style/InvisibleFocusHolder"
+            android:id="@+id/search_etv"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/volte_medium" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp"
+        android:background="#EBECF0"
+        android:layout_below="@+id/search_bar_layout">
+
+        <LinearLayout
+            android:id="@+id/llLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_6sdp"
+                android:fontFamily="@font/volte_medium"
+                android:singleLine="true"
+                android:text="Location"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_15sdp" />
+            <!-- android:drawableRight="@drawable/ic_arrow_down"
+                            android:drawablePadding="@dimen/_5sdp"-->
+            <ImageView
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:src="@drawable/downarrow"
+                app:tint="@color/colorPrimary"
+                android:id="@+id/down_arrow_img" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/my_pramotion_rcv"
+            android:layout_margin="@dimen/_5sdp"
+            android:visibility="gone"/>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:orientation="vertical"
+            app:duration="800"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+                <include layout="@layout/my_promotion_list_shimmerview"/>
+
+
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>

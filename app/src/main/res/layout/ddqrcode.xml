@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/padding_30dp"
+        android:layout_height="@dimen/padding_30dp"
+        android:layout_gravity="right"
+        android:background="@drawable/llclosecirle">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/homewhiteclose" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="@dimen/padding_5dp"
+        android:layout_marginRight="@dimen/padding_15dp"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/ticket_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:maxLines="5"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/volte_semibold"
+                android:visibility="visible" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:maxLines="1"
+                android:fontFamily="@font/volte_medium"
+                android:text="Please visit our store to spend"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text13"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_qr_code"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:scaleType="fitCenter" />
+
+                <ImageView
+                    android:id="@+id/ivTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/successtick"
+                    android:visibility="gone" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_scanned_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:background="@color/green_opacity_80" />
+
+                    <View
+                        android:layout_width="135dp"
+                        android:layout_height="135dp"
+                        android:layout_centerInParent="true"
+                        android:background="@color/green_opacity_26" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/padding_7dp"
+                        android:background="@drawable/bg_qrcode_tansparent"
+                        android:gravity="center"
+                        android:text="SCANNED"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sub_heading"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/ivBarcode"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:layout_marginBottom="@dimen/padding_5dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:layout_width="82dp"
+                android:layout_height="82dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/llcircleqr"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="visible" />
+<!--                android:textSize="@dimen/text12_5"-->
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/padding_7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:text="Voucher is successfully redeemed"
+            android:textColor="#37ad49"
+            android:textSize="@dimen/sub_heading"
+            android:fontFamily="@font/volte_bold"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

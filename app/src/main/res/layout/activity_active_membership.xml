@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.reward_club.ActiveMembershipActivity">
+    <include layout="@layout/tool_bar_colour"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/tool_barLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F6F0FA"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Medal Icon -->
+            <ImageView
+                android:id="@+id/medalIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_medal"
+                android:layout_gravity="center"
+                android:contentDescription="Medal Icon" />
+
+            <!-- Header Text -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/paymentHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Pay just £7.50 to join the Hillingdon club membership for 1 year!"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Apple Pay Option -->
+
+
+          <!--  &lt;!&ndash; Visa Option &ndash;&gt;
+            <LinearLayout
+                android:id="@+id/visaOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/payment_option_selected_bg"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_visa"
+                    android:contentDescription="Visa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visa Debit"
+                    android:textSize="16sp"
+                    android:layout_marginStart="12dp"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            &lt;!&ndash; Card Number &ndash;&gt;
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card Number"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/volte_medium"
+                android:layout_marginBottom="5dp" />
+            <EditText
+                android:id="@+id/cardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Number"
+                android:fontFamily="@font/volte_medium"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="@drawable/input_bg"
+                android:layout_marginBottom="8dp" />
+
+            &lt;!&ndash; Expiry Date &ndash;&gt;
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expiry Date (mm/yy)"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:layout_marginBottom="5dp" />
+            <EditText
+                android:id="@+id/expiryDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Expiry Date (mm/yy)"
+                android:inputType="date"
+                android:padding="12dp"
+                android:background="@drawable/input_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verifies your card is still valid"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="12dp" />
+
+            &lt;!&ndash; Cardholder Name &ndash;&gt;
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cardholder name"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:layout_marginBottom="5dp" />
+            <EditText
+                android:id="@+id/cardholderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cardholder name"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:background="@drawable/input_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verifies the details of your payment card"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="12dp" />
+
+            &lt;!&ndash; CVV &ndash;&gt;
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CVV no"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:layout_marginBottom="5dp" />
+            <EditText
+                android:id="@+id/cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="CVV no"
+                android:inputType="numberPassword"
+                android:padding="12dp"
+                android:background="@drawable/input_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Required for card authentication"
+                android:textSize="12sp"
+                android:textColor="#888888"
+                android:layout_marginBottom="24dp" />
+-->
+            <!-- Pay Button -->
+            <Button
+                android:id="@+id/payButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Pay £7.50"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/background_border_blue"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#800020"
+                android:textStyle="bold"
+                android:padding="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>
+</layout>

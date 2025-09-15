@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="@dimen/padding_5dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="left|center"
+                    android:adjustViewBounds="true"
+                    android:gravity="left|right"
+                    android:maxHeight="@dimen/height"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <!---->
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/ivMainImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sponplaceholder"
+                        android:visibility="visible"
+                        app:layout_constraintDimensionRatio="H, 16:9"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:riv_border_color="#333333"
+                        app:riv_border_width="0dip"
+                        app:riv_corner_radius="4dip"
+                        app:riv_mutate_background="true"
+                        app:riv_oval="false" />
+
+
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCharityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="left|center"
+                    android:maxLines="2"
+                    android:textColor="@color/blue_basic_theme"
+                    android:textSize="14sp"
+                    tools:text="dfjdfjdkjfdjfjdjfdkjfkdjfjdjfdfkjdkjfdjdffdfdfddfd" />
+
+                <TextView
+                    android:id="@+id/tvCharityDescribtion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_1dp"
+                    android:layout_marginBottom="@dimen/padding_1dp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="dfjdfjdkjfdjfjdjfdkjfkdjfjdjfdfkjdkjfdjdffdfdfddfd" />
+
+                <TextView
+                    android:id="@+id/tvCharityurl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_1dp"
+                    android:autoLink="web"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:maxLines="2"
+                    android:textColorLink="@color/lightblue"
+                    android:textSize="12sp"
+                    tools:text="dfjdfjdkjfdjfjdjfdkjfkdjfjdjfdfkjdkjfdjdffdfdfddfd" />
+
+                <TextView
+                    android:id="@+id/tvCharityPooints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_1dp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvJoinred"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="left|center"
+                    android:textColor="@color/green_color_overlay"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/rg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:buttonTint="@color/blue_basic_theme"
+                android:gravity="right|center">
+
+
+            </RadioButton>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

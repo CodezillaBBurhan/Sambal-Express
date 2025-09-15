@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="@dimen/padding_30dp"
+                android:layout_height="@dimen/padding_30dp"
+                android:layout_gravity="right"
+                android:background="@drawable/llclosecirle">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="right|center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/homewhiteclose" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="@dimen/padding25"
+                android:layout_marginRight="@dimen/padding_15dp"
+                android:background="@drawable/lldialogrounded"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <!--android:layout_marginBottom="@dimen/_10sdp"
+                                        android:layout_marginLeft="@dimen/_20sdp"
+                                        android:layout_marginRight="@dimen/_20sdp"-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvP"
+                            android:fontFamily="@font/volte_semibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+
+                        <TextView
+                            android:id="@+id/tvPoints"
+                            android:fontFamily="@font/volte_bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/light_grey_for_text"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <RadioButton
+                        android:id="@+id/cbcollectmy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|left"
+                        android:buttonTint="#481e5e"
+                        android:gravity="center|left" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="#626262" />
+
+                <TextView
+                    android:id="@+id/tvCharity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:textColor="#731F96"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCharitylist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/cbAgr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:checked="true"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        android:buttonTint="#0059f9" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="I agree to the "
+                        android:textColor="@color/light_grey_for_text"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/volte_medium" />
+
+
+                    <TextView
+
+                        android:id="@+id/tvAgree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Terms and Conditions"
+                        android:textColor="#0059f9"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/volte_bold" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnDonate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/padding_15dp"
+                    android:layout_marginRight="@dimen/padding_20dp"
+                    android:layout_marginBottom="@dimen/padding_15dp"
+                    android:background="@drawable/llbluebtn"
+                    android:gravity="center"
+                    android:text="Confirm"
+                    android:fontFamily="@font/volte_bold"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_7dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:layout_marginBottom="@dimen/padding_5dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:maxLines="5"
+                    android:fontFamily="@font/volte_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text12_5"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

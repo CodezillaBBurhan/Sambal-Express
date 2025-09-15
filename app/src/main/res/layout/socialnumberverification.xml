@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="@dimen/padding_10dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ic_py_circle" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/logos"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:layout_width="260dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/signuplogo" />
+
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/padding_10dp"
+        android:layout_marginRight="@dimen/padding_10dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/volte_medium"
+                android:gravity="center"
+                android:text="PHONE VERIFICATION"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:srcCompat="@drawable/mobile_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_medium"
+                android:gravity="center"
+                android:text="To collect DD Points"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/text12_5"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_medium"
+                android:gravity="center"
+                android:lineSpacingExtra="1dp"
+                android:text="Provide a  Phone Number to continue"
+                android:textColor="@color/light_grey_for_text"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_medium"
+                android:gravity="center"
+                android:text="We'll send  a verification code that you can use to sign in"
+                android:textColor="@color/light_grey_for_text"
+                android:textSize="14sp" />
+
+
+            <LinearLayout
+                android:id="@+id/llCountry"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="@dimen/padding_15dp"
+                android:layout_marginTop="@dimen/padding_15dp"
+                android:layout_marginRight="@dimen/padding_15dp"
+                android:background="@drawable/signup_linear_layout_bg"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tvCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:drawableLeft="@drawable/ic_flag"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:paddingStart="@dimen/padding_10dp"
+                    android:text="United Kingdom"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text12_5" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="@dimen/padding_15dp"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:layout_marginRight="@dimen/padding_15dp"
+                android:background="@drawable/signup_linear_layout_bg"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tvCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:backgroundTint="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="@dimen/padding_5dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="left|center"
+                    android:paddingStart="@dimen/padding_10dp"
+                    android:text="+44"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text12_5" />
+
+
+                <EditText
+                    android:id="@+id/exNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:backgroundTint="@android:color/transparent"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:hint="Phone Number"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/padding_10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text12_5" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="@dimen/padding_15dp"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:layout_marginRight="@dimen/padding_15dp"
+                android:background="@drawable/signup_linear_layout_bg"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/exReferaalCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:backgroundTint="@android:color/transparent"
+                    android:drawableLeft="@drawable/refer"
+                    android:drawablePadding="@dimen/padding_5dp"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="left|center"
+                    android:hint="Referral Code (if applicable)"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/padding_10dp"
+                    android:textColor="@color/black"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text12_5" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_15dp"
+                android:layout_marginTop="@dimen/padding25"
+                android:layout_marginRight="@dimen/padding_15dp">
+
+                <TextView
+                    android:id="@+id/tvVerify"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+
+                    android:background="@drawable/llsingupcontinuegree"
+                    android:fontFamily="@font/volte_bold"
+                    android:gravity="center"
+                    android:text="Verify Phone Number"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/description" />
+
+
+                <LinearLayout
+                    android:layout_width="35dp"
+                    android:layout_height="@dimen/padding_30dp"
+                    android:layout_gravity="right|center"
+                    android:layout_margin="@dimen/padding_5dp"
+                    android:background="@drawable/llrightarrow"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_right_aa" />
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+</layout>

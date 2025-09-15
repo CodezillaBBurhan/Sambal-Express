@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="165dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/padding_20dp"
+            android:background="@drawable/purpledotted"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvCardNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:letterSpacing="0.02"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                tools:text="4343889802" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

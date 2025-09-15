@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:fitsSystemWindows="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/padding_20dp"
+                android:layout_height="@dimen/padding_20dp"
+                android:layout_margin="@dimen/padding_10dp"
+                android:src="@drawable/lefarrow"
+                android:tint="@color/white" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left|center"
+                android:layout_margin="@dimen/padding_5dp"
+                android:src="@drawable/place_holder"
+                android:visibility="gone"
+                app:civ_border_width="0dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="Salman hanfi" />
+
+            <ImageView
+                android:id="@+id/ivCrop"
+                android:layout_width="@dimen/padding_20dp"
+                android:layout_height="@dimen/padding_20dp"
+                android:layout_gravity="right|center"
+                android:layout_margin="@dimen/padding_10dp"
+                android:src="@drawable/ic_crop"
+                android:tint="@color/white" />
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/place_holder" />
+
+            <!--        android:inputType="textCapWords"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/black_50_opactiy"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/exMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/volte_medium"
+                    android:backgroundTint="#1a1a1a"
+                    android:hint="Add a  caption"
+                    android:minLines="2"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/text13" />
+
+                <ImageView
+                    android:id="@+id/ivSend"
+                    android:layout_width="@dimen/padding_20dp"
+                    android:layout_height="@dimen/padding_20dp"
+                    android:layout_gravity="right|bottom|center"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_marginRight="@dimen/padding_5dp"
+                    android:layout_marginBottom="@dimen/padding_10dp"
+                    android:src="@drawable/sendactive" />
+
+
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

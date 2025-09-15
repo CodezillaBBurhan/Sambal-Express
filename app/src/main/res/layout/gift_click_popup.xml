@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_opacity_pop"
+   >
+
+
+    <!--  android:background="@color/black_opacity_80"-->
+
+
+    <LinearLayout
+        android:id="@+id/main_popup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/_20sdp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/volte_medium"
+            android:text="Enter Mobile Number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <EditText
+            android:id="@+id/userMobile_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:drawableLeft="@drawable/ic_phone_dark"
+            android:drawablePadding="@dimen/_8sdp"
+            android:fontFamily="@font/volte_semibold"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:focusable="true"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp" />
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/llbluebtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_above="@+id/main_popup_layout"
+        android:background="@android:color/transparent"
+        android:src="@drawable/homewhiteclose" />
+
+
+</RelativeLayout>
+

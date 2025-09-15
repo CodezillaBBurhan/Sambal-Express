@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.MyRewards.MyVouchersFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f5f7fa"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_5sdp" />
+
+    <LinearLayout
+        android:id="@+id/llNoData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/store_voucher_empty" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:fontFamily="@font/volte_semibold"
+            android:gravity="center"
+            android:text="You have not earned any \n vouchers yet"
+            android:textColor="#101010"
+            android:textSize="15sp"
+            android:id="@+id/main_title_tv" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_medium"
+            android:gravity="center"
+            android:text="Keep visiting DD Partners and claim \n points to earn vouchers"
+            android:textColor="@color/light_grey_for_text"
+            android:textSize="13sp"
+            android:id="@+id/sub_title_tv" />
+
+    </LinearLayout>
+    <include layout="@layout/some_thing_went_wrong"
+        android:id="@+id/my_voucher_error_layout"/>
+</LinearLayout>
+</layout>

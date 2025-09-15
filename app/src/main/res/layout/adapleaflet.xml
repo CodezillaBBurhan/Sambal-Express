@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginRight="@dimen/padding_10dp"
+    android:background="@drawable/background_image">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/padding_5dp"
+            android:layout_marginTop="@dimen/padding_5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="@dimen/padding_20dp"
+            android:layout_height="@dimen/padding_20dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/padding_3dp"
+            android:layout_marginRight="@dimen/padding_3dp"
+            android:indeterminateTint="@color/colorPrimary"
+            android:visibility="visible"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+</LinearLayout>
+</layout>

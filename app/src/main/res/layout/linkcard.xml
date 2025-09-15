@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_close"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="My DD Card"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                android:fontFamily="@font/volte_semibold"
+                android:layout_weight="3"
+                android:id="@+id/title_tv" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_notification_purple" />
+
+            <LinearLayout
+                android:id="@+id/llScan"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:background="@drawable/llscanqr"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    app:srcCompat="@drawable/qrlinkcard" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/padding_7dp"
+                    android:fontFamily="@font/volte_bold"
+                    android:text="Scan QR"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--<androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_10dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+
+            <TextView
+                android:id="@+id/tvCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_bold"
+                android:text="Your DD Card"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:fontFamily="@font/volte_medium"
+                android:text="Send this card every time to collect yours visits and to unlock &amp; redeem your awards"
+                android:textColor="@color/light_grey_for_text"
+                android:textSize="@dimen/text13"
+                android:visibility="gone" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/volte_semibold"
+                        android:text="Your QR Code"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:layout_weight="0.5" />
+
+
+                    <ImageView
+                        android:id="@+id/ivQR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="4"
+                        android:adjustViewBounds="true"
+                        android:visibility="visible" />
+
+
+                    <ImageView
+                        android:id="@+id/ivTick_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:src="@drawable/blur_qrcode2"
+                        android:layout_weight="4"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:textColor="@color/black"
+                        android:layout_weight="0.5"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="center"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="* Collect Points"
+                        android:layout_weight="0.5"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/volte_medium"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_200"
+                android:visibility="gone">
+
+
+                <ImageView
+                    android:layout_width="@dimen/margin_200"
+                    android:layout_height="@dimen/margin_200"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/padding_15dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dummyqrcode" />
+
+                <ImageView
+                        android:id="@+id/ivTick"
+                        android:layout_width="@dimen/margin_200"
+                        android:layout_height="@dimen/margin_200"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/blur_qrcode2"
+                        android:visibility="gone" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_scanned_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="250dp"
+                            android:layout_height="250dp"
+                            android:background="@color/green_opacity_80" />
+
+                        <View
+                            android:layout_width="135dp"
+                            android:layout_height="135dp"
+                            android:layout_centerInParent="true"
+                            android:background="@color/green_opacity_26" />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            android:layout_margin="@dimen/padding_7dp"
+                            android:background="@drawable/bg_qrcode_tansparent"
+                            android:gravity="center"
+                            android:text="SCANNED"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sub_heading"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/cvScan"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_margin="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/volte_semibold"
+                        android:text="Scan QR "
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_tap_screen"
+                        android:id="@+id/tap_to_qr_img"
+                        android:layout_weight="1.6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Tap Screen to Scan"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/volte_bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        android:layout_weight="3.4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_7sdp"
+                            tools:text="* Link your My DD Card"
+                            android:textSize="13sp"
+                            android:id="@+id/first_content_tv"
+                            android:fontFamily="@font/volte_medium"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="* Scan your sign up deal QR Code"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/volte_medium"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="* Collect your Visits."
+                            android:textSize="13sp"
+                            android:fontFamily="@font/volte_medium"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/volte_medium"
+                            android:text="* Redeem your Visit deals."
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/volte_medium"
+                            android:text="* Add your missed points."
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvCardNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-23dp"
+                android:fontFamily="@font/volte_light"
+                android:gravity="left|center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/llLink"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:layout_marginBottom="@dimen/padding_10dp"
+                    android:background="@drawable/llyellow20round"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/volte_bold"
+                        android:gravity="center"
+                        android:text="Link Another Card"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text13" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        <!--</androidx.core.widget.NestedScrollView>-->
+
+    </LinearLayout>
+</layout>

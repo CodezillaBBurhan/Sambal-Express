@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F9FE">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F9FE">
+
+        <ImageView
+            android:id="@+id/ivDdCard"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerInParent="true"
+            android:elevation="@dimen/padding_10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/_35sdp"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/ic_dd_card" />
+
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/padding_7dp"
+            android:layout_marginBottom="@dimen/_60sdp"
+            android:elevation="@dimen/padding_10dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/search_icon_bottom" />
+
+        </LinearLayout>
+
+
+
+            <include
+                android:id="@+id/appbar"
+                layout="@layout/new_app_bar_tab_layout" />
+
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/appbar"
+                android:layout_above="@+id/nav_view"
+                android:background="#f5f7fa"
+                android:paddingTop="0dp" />
+            <!--  android:layout_marginTop="48dp"
+                    android:layout_marginBottom="50dp"-->
+
+
+            <!-- Footer aligned to bottom -->
+
+
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/bottom_bg"
+            android:backgroundTint="#F5F9FE"
+            android:theme="@style/BottomNavigationView"
+            app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/nav_item_color"
+            app:itemIconTint="@color/nav_item_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/supplier_bottom_nav_menu" />
+        <!--   app:itemIconTint="@color/bnv_tab_item_foreground"
+         app:itemTextColor="@color/bnv_tab_item_foreground" -->
+
+       <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/bottom_bg"
+            android:theme="@style/BottomNavigationView"
+            app:itemBackground="@color/white"
+            app:itemIconTint="@color/bnv_tab_item_foreground"
+            app:itemTextColor="@color/bnv_tab_item_foreground"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/supplier_bottom_nav_menu"
+            android:elevation="0dp"
+            android:fadingEdgeLength="0dp"
+
+            android:backgroundTint="@color/white"
+            app:itemHorizontalTranslationEnabled="true"
+            />-->
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

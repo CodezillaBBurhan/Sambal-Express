@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_325sdp"
+    android:layout_gravity="center">
+
+
+    <ImageButton
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_cancle_icon_white_bg" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cancel_button"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_12sdp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cancel_button"
+            android:scaleType="fitXY"
+            android:src="@drawable/gift_card_background" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@color/transparent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:orientation="vertical"
+
+                >
+
+
+                <ImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_gift_card_icon" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="center"
+                        android:text="@string/congratulations"
+                        android:textColor="@color/orginal_yellow"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/gift_card_msg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp"
+                        tools:text="Your gifcard is added to your  sample express wallet" />
+
+                    <TextView
+                        android:id="@+id/giftMessage_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="center"
+                        android:textColor="@color/gift_cart_green_txt_color"
+                        android:textSize="@dimen/_17sdp"
+                        tools:text="Home Aniversery" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="center"
+                        android:text="@string/enjoy_your_gift"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <Button
+                        android:id="@+id/popup_no_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/custum_rouded_corner_with_primarycolor"
+                        android:backgroundTint="@color/white"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="@string/reject"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gift_cart_no_btn_colour"
+                        android:textSize="@dimen/_13sdp"
+
+                        />
+
+                    <Button
+                        android:id="@+id/popup_yes_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/custum_rouded_corner_with_primarycolor"
+                        android:backgroundTint="@color/orginal_yellow"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="@string/accept"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_13sdp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+

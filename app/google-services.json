@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "336532266210",
+    "project_id": "balt-bf65f",
+    "storage_bucket": "balt-bf65f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336532266210:android:c670c85dde4ae0ee6012bb",
+        "android_client_info": {
+          "package_name": "sambal.mydd.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Duld54_8MtUjYelrqbNjcBk3j4ZfQ_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

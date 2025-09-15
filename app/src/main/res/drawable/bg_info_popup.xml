@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/black_opacity_for_info_popup" />
+
+    <!--<padding
+        android:bottom="8dp"
+        android:left="5dp"
+        android:right="3dp"
+        android:top="8dp" />-->
+    <corners android:radius="@dimen/_5sdp" />
+    <!--<stroke
+        android:width="4px"
+        android:color="@color/white" />-->
+</shape>

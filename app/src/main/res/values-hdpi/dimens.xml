@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="height">180dp</dimen>
+    <dimen name="margin_200">150dp</dimen>
+    <dimen name="circle_200">130</dimen>
+
+    <dimen name="contacts">47dp</dimen>
+    <dimen name="header">130dp</dimen>
+    <dimen name="chatImage">200dp</dimen>
+    <dimen name="walkthrough">270dp</dimen>
+    <dimen name="textwalkthorugh">32sp</dimen>
+
+
+</resources>

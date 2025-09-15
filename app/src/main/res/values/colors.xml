@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f2f2f2</color>
+    <color name="colorPrimaryDark">#BD3F50</color>
+    <color name="button_color">#028C4F</color>
+    <!-- #029bde-->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#0a1123</color>
+    <color name="grey">#333333</color>
+    <color name="bggrey">#f5f7fa</color>
+    <color name="yellow_text_color">#D9B73A</color>
+    <!--505050-->
+    <color name="light_grey">#f5f7fa</color>
+    <color name="light_grey_for_text">#75787b</color>
+    <color name="menuicon_color">#666666</color><!--a6a6a6-->
+    <color name="title_colour">#421b67</color>
+    <!--#6B6E79-->
+    <color name="black_opacity_for_info_popup">#D9000000</color>
+    <color name="black_opacity_pop">#D9272727</color>
+
+
+    <color name="shader_color">#9b9b9b</color>
+    <color name="progress_color">#1DE9B6</color>
+    <color name="background_color">#B0BEC5</color>
+
+    <color name="recycler_bg_color">#EAEAEA</color>
+
+    <color name="green_color_overlay">#64C382</color>
+    <color name="grocerygreen">#78be20</color>
+    <color name="grocertytext">#333333</color>
+    <color name="fb_btn_bg_color">#3b5998</color>
+    <color name="greenpromo">#009900</color>
+    <color name="redpromo">#ec0000</color>
+
+    <color name="dialog_color">#32ffffff</color>
+    <color name="black_normal_color">#000000</color>
+    <color name="blue">#b9090b</color><!--#029bde-->
+    <color name="blue_basic_theme">@color/colorPrimary</color> <!--#19A6DE-->
+    <color name="greyish">#9c9c9c</color>
+
+    <!--#0066CC-->
+    <color name="red">#e73232</color> <!--#FF0000-->
+    <color name="white_opacity">#8ccccccc</color>
+    <color name="black_opacity_80">#26000000</color>
+    <color name="lightGrayColor">#f5f7fa</color>
+    <color name="color_normal_popup_body_txt">#7d7d7d</color>
+    <color name="black_50_opactiy">#8c000000</color>
+    <color name="green_opacity_BF">#BF3cac49</color>
+    <color name="green_opacity_80">#803cac49</color>
+    <color name="green_opacity_26">#733cac49</color>
+    <color name="green_color_regular">#00a90e</color><!--R:0 G:169 B:14-->
+    <color name="Border">#d1d1d1</color>
+    <color name="bg_signup">#F7F8FC</color>
+
+    <color name="newpurple">#000000</color>
+    <color name="gradientcolor1">#ff8000</color>
+    <color name="gradientcolor2">#fa4716</color>
+    <color name="menutextcolor">#303648</color>
+    <color name="bluesheme">#148eff</color>
+    <color name="llgray">#7c8385</color>
+    <color name="lightblue">#379fff</color>
+    <color name="colrpurple">#000000</color>
+    <color name="yellow">#000000</color>
+    <color name="defult_background">#626262</color>
+    <color name="shimmer_background">#B3B3B3</color>
+    <color name="orginal_yellow">#D9B73A</color>
+
+    <color name="blue_shade">#2961F4</color>
+    <color name="standered_white">#ffffff</color>
+    <color name="active_orange">#ff5c19</color>
+    <color name="videoBtn_red">#e50e0e</color>
+    <color name="pink">#fa1e86</color>
+    <color name="newpurpleclr">#000000</color>
+    <color name="greytextclr">#535a6f</color>
+    <color name="greenclr">#249386</color>
+    <color name="greyborderclr">#e0e1e4</color>
+    <color name="greyblack_clr">#29282a</color>
+    <color name="new_greenclr">#008760</color>
+    <color name="new_greyclr">#77828d</color>
+    <color name="already_voted_grey">#dadde2</color>
+
+    <color name="dateColor">#4b4b4b</color>
+    <color name="titleClr">#3b3b3b</color>522E91
+    <color name="exclusive_color">#522583</color>
+
+    <color name="gift_cart_no_btn_colour">#FF4F50</color>
+    <color name="gift_cart_green_txt_color">#0CFF46</color>
+
+    <color name="gift_cart_transparent_color">#00FFFFFF</color>
+    <color name="transparent_background">#00FFFFFF</color>
+    <color name="account_delete">#ff4a4a</color>
+
+
+</resources>
+
+    <!--303545-->

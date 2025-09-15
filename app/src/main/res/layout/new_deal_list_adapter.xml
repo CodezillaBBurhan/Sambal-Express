@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/root_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_3dp"
+            android:layout_weight="1"
+            android:background="@drawable/llgreenhome"
+            app:cardCornerRadius="5dp"
+            app:cardUseCompatPadding="true"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:visibility="visible"
+                            app:layout_constraintDimensionRatio="H,1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <sambal.mydd.app.utils.ImageHe
+                                android:id="@+id/iv"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="7dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginEnd="7dp"
+                                android:layout_marginBottom="7dp"
+                                android:maxHeight="@dimen/height"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/mainimageplaceholder"
+                                android:visibility="visible" />
+
+                        </RelativeLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_3dp"
+                        android:layout_marginRight="@dimen/padding_3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_semibold"
+                            android:lineSpacingExtra="2dp"
+                            android:maxLines="2"
+                            android:minLines="2"
+                            android:textColor="#101010"
+                            android:textSize="13sp"
+                            tools:text="Salman" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginLeft="@dimen/padding_5dp"
+                            android:layout_marginTop="@dimen/padding_3dp"
+                            android:layout_marginRight="@dimen/padding_5dp">
+
+                            <ImageView
+                                android:id="@+id/ivLike"
+                                android:layout_width="@dimen/padding_20dp"
+                                android:layout_height="@dimen/padding_20dp"
+                                android:layout_gravity="right|center"
+                                android:src="@drawable/heartfulled"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/ivUnlike"
+                                android:layout_width="@dimen/padding_20dp"
+                                android:layout_height="@dimen/padding_20dp"
+                                android:layout_gravity="right|center"
+                                android:src="@drawable/heartempty" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="@dimen/padding_10dp"
+                        android:layout_marginTop="@dimen/padding_3dp"
+                        >
+
+
+                        <androidx.constraintlayout.helper.widget.Flow
+                            android:id="@+id/flow"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:flow_wrapMode="chain"
+                            app:flow_horizontalGap="6dp"
+                            app:flow_maxElementsWrap="3"
+                            app:flow_verticalAlign="top"
+                            app:flow_horizontalStyle="spread_inside"
+                            app:constraint_referenced_ids="tvFinalPrice,tvPrice,tvDiscount" />
+
+
+                        <TextView
+                            android:id="@+id/tvFinalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_bold"
+                            android:maxLines="1"
+                            android:singleLine="false"
+                            android:textColor="#101010"
+                            android:textSize="12sp"
+                            tools:text="$ 22.5000" />
+
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_semibold"
+                            android:singleLine="false"
+                            android:textColor="@color/light_grey_for_text"
+                            android:textSize="12sp"
+                            tools:text="$ss 22.700"/>
+
+
+                        <TextView
+                            android:id="@+id/tvDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_semibold"
+                            android:singleLine="false"
+                            android:textColor="#e94545"
+                            android:textSize="12sp"
+                            tools:text="10% Off" />
+
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <!--
+                                        <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="start"
+                                            android:layout_marginLeft="@dimen/padding_10dp"
+                                            android:layout_marginTop="@dimen/padding_3dp"
+                                            android:layout_marginRight="@dimen/padding_10dp">
+
+
+
+                    &lt;!&ndash;                    <LinearLayout&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_gravity="bottom|center"&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_marginLeft="@dimen/padding_10dp"&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_marginTop="@dimen/padding_3dp"&ndash;&gt;
+                    &lt;!&ndash;                        android:layout_marginRight="@dimen/padding_10dp"&ndash;&gt;
+                    &lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;
+                    &lt;!&ndash;                        android:visibility="visible"&ndash;&gt;
+                    &lt;!&ndash;                        tools:ignore="MissingConstraints">&ndash;&gt;
+
+
+                                            <androidx.constraintlayout.helper.widget.Flow
+                                                android:id="@+id/flow"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                app:flow_wrapMode="chain"
+                                                app:flow_verticalAlign="top"
+                                                app:flow_verticalStyle="packed"
+                                                app:flow_horizontalGap="3dp"
+                                                app:flow_maxElementsWrap="3"
+                                                app:constraint_referenced_ids="tvFinalPrice,tvPrice,tvDiscount" />
+
+
+                                            <TextView
+                                                android:id="@+id/tvFinalPrice"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="left|center"
+                                                android:layout_marginRight="@dimen/padding_10dp"
+                                                android:ellipsize="end"
+                                                android:fontFamily="@font/volte_bold"
+                                                android:gravity="left|center"
+                                                android:maxLines="1"
+                                                android:singleLine="false"
+                                                android:textColor="#101010"
+                                                android:textSize="12sp"
+                                                tools:text="$ 22.5000" />
+
+
+                                            <TextView
+                                                android:id="@+id/tvPrice"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="left|center"
+                                                android:layout_marginRight="@dimen/padding_10dp"
+                                                android:ellipsize="end"
+                                                android:fontFamily="@font/volte_semibold"
+                                                android:gravity="left|center"
+                                                android:singleLine="false"
+                                                android:textColor="@color/light_grey_for_text"
+                                                android:textSize="12sp"
+                                                tools:text="$ss 22.700"/>
+
+
+                                            <TextView
+                                                android:id="@+id/tvDiscount"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="left|center"
+                                                android:ellipsize="end"
+                                                android:fontFamily="@font/volte_semibold"
+                                                android:gravity="left|center"
+                                                android:singleLine="false"
+                                                android:textColor="#e94545"
+                                                android:textSize="12sp"
+                                                tools:text="10% Off" />
+
+                                            &lt;!&ndash;                    </com.google.android.flexbox.FlexboxLayout>&ndash;&gt;
+
+
+
+                    &lt;!&ndash;                    </LinearLayout>&ndash;&gt;
+
+
+
+
+                                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    -->
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_10dp"
+                        android:layout_marginRight="@dimen/padding_10dp"
+                        android:layout_marginBottom="@dimen/padding_5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/padding_20dp"
+                            android:layout_gravity="left|center"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_medium"
+                            android:gravity="left|center"
+                            android:maxLines="1"
+                            android:singleLine="false"
+                            android:textColor="#411b66"
+                            android:textSize="8sp"
+                            tools:text="24 Days Left" />
+
+
+                        <!-- <LinearLayout
+                             android:id="@+id/llExclusive"
+                             android:layout_width="wrap_content"
+                             android:layout_height="@dimen/padding_15dp"
+                             android:orientation="vertical"
+                             android:layout_gravity="center"
+                             android:gravity="center"
+                             android:visibility="visible"
+                             android:background="@drawable/llyellowexclusive"
+                             android:layout_marginLeft="@dimen/padding_10dp">
+
+
+                             <TextView
+                                 android:id="@+id/tvExclusive"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginLeft="5dp"
+                                 android:layout_weight="1"
+                                 android:ellipsize="end"
+                                 android:fontFamily="@font/volte_medium"
+                                 android:lineSpacingExtra="2dp"
+                                 android:maxLines="1"
+                                 android:minLines="1"
+                                 android:layout_gravity="center"
+                                 android:gravity="center"
+                                 android:textColor="#ff0000"
+                                 android:textSize="10sp"
+                                 android:text="  Exclusive   " />
+                         </LinearLayout>-->
+                        <ImageView
+                            android:id="@+id/llExclusive"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/padding_15dp"
+                            android:src="@drawable/exclusive"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

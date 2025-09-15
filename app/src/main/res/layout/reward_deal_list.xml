@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    card_view:cardCornerRadius="16dp"
+    card_view:cardElevation="4dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Image -->
+        <ImageView
+            android:id="@+id/dealimage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_4_3"
+            android:background="@drawable/rounded_top_corners" />
+
+        <!-- Tags and rating -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="4">
+
+
+
+            <TextView
+                android:id="@+id/tvAgentCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Universal Health Coverage"
+                android:fontFamily="@font/volte_semibold"
+                android:textColor="#1A73E8"
+               android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Health Care"
+                android:textColor="#757575"
+                android:fontFamily="@font/volte_medium"
+                android:id="@+id/category_name_tv"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:layout_gravity="end">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ 4.5"
+                    android:textColor="#FF9800"
+                    android:id="@+id/deal_rate_tv"
+                    android:layout_marginStart="8dp" />
+
+                <ImageView
+                    android:id="@+id/dealfav_img"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/heartfulled"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/deal_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Oral B Pro Health Gum Care Toothbrush Medium"
+           android:fontFamily="@font/volte_semibold"
+            android:textColor="@color/black_normal_color"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Pricing row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tvFinalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="£2.99"
+                android:fontFamily="@font/volte_semibold"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="  £3.49"
+                android:textColor="#757575"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:id="@+id/tvPrice" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="  10% OFF"
+                android:textColor="#D32F2F"
+                android:textStyle="bold"
+                android:id="@+id/tvDiscount"/>
+        </LinearLayout>
+
+        <!-- Points info -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:text="+"
+                android:textColor="#2E7D32"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="100 Club Points can be redeemed for £1"
+                android:textColor="#000"
+                android:fontFamily="@font/volte_medium"
+                android:id="@+id/club_points_value_tv"/>
+        </LinearLayout>
+
+        <!-- Total Saving -->
+        <TextView
+            android:id="@+id/deal_saving_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Total saving: £0.50"
+            android:textColor="#B71C1C"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</layout>

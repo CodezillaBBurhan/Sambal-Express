@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/blue_background_circle"
+            android:text="1"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="top"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/count_tv" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_5sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/app_name"
+                android:textColor="@color/black"
+                android:fontFamily="@font/volte_semibold"
+                android:textSize="@dimen/_13sdp"
+                android:id="@+id/title_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/app_name"
+                android:fontFamily="@font/volte"
+                android:id="@+id/describtion_tv" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+</layout>

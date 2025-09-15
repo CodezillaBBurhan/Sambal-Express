@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:layout_below="@+id/cancel_img"
+    android:layout_marginLeft="@dimen/_20sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_20sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:background="@drawable/corners"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10sdp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/volte_semibold"
+            android:text="Your earning"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/volte_bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_18sdp"
+            tools:text="£5" />
+
+
+        <Button
+            android:id="@+id/submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/volte_semibold"
+            android:text="Get your money"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/bottom_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/volte_medium"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            tools:text="Your request has been successfully submitted.MyDD team will contact you shortly" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/bank_detail_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/volte_bold"
+                android:text="Bank Details"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/volte_medium"
+                android:text="you will receive the money within 5 working days"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:text="Account name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@drawable/bg_ticket_grey_btn"
+                android:imeOptions="actionNext"
+                android:inputType="text|textCapWords"
+                android:padding="@dimen/_5sdp"
+                android:id="@+id/account_name_etv"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:text="Account number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@drawable/bg_ticket_grey_btn"
+                android:imeOptions="actionNext"
+                android:inputType="text|number"
+                android:padding="@dimen/_5sdp"
+                android:id="@+id/account_number_etv"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:text="Sort code"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_ticket_grey_btn"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/sort_code_first_etv"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_ticket_grey_btn"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/sort_code_second_etv"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_ticket_grey_btn"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:id="@+id/sort_code_third_etv"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/volte_medium"
+                android:text="Email address"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@drawable/bg_ticket_grey_btn"
+                android:imeOptions="actionDone"
+                android:inputType="text|textEmailAddress"
+                android:id="@+id/email_address_etv"
+                android:padding="@dimen/_5sdp"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/account_detail_submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/volte_semibold"
+                android:text="Submit"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+
+    <ImageView
+        android:id="@+id/cancel_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_7sdp"
+        android:src="@drawable/ic_cancel" />
+</RelativeLayout>

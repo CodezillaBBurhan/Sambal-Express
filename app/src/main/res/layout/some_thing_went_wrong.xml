@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/some_thing_went_wrong_layout"
+    android:background="@color/standered_white"
+    android:visibility="gone"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+       >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/some_thing_went_wrong"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/some_thing_went_wrong"
+            android:textColor="@color/titleClr"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:fontFamily="@font/volte_semibold"
+            android:textSize="@dimen/_16sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:text="@string/please_try_again_after_some_time"
+            android:textColor="@color/titleClr"
+            android:fontFamily="@font/volte"
+            android:textSize="@dimen/_13sdp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_30dp"
+            android:background="@drawable/background_selected"
+            android:textColor="@color/yellow"
+            android:text="@string/please_try_again"
+            android:textSize="@dimen/_15sdp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/volte_semibold"
+            android:paddingLeft="@dimen/_30sdp"
+            android:paddingRight="@dimen/_30sdp"
+            android:id="@+id/pls_try_again"/>
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+</layout>

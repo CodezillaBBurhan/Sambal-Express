@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.SearchAllDealActivity">
+
+    <include layout="@layout/tool_bar_colour" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:elevation="@dimen/_5sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:id="@+id/search_bar_layout"
+        android:layout_below="@+id/tool_barLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:paddingRight="@dimen/_5sdp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/quantum_ic_search_grey600_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:hint="Search here"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:id="@+id/search_etv"
+                android:focusable="true"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:layout_weight="4.5"
+                android:fontFamily="@font/volte_semibold" />
+            <!--android:focusableInTouchMode="false"-->
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cancel_circle"
+                android:id="@+id/cancel_img"
+                android:visibility="gone"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:id="@+id/nestedScolling"
+        android:layout_below="@+id/search_bar_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_2sdp"
+                android:visibility="gone"
+                android:id="@+id/sign_up_deal_layout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up Deals"
+                    android:textColor="#06143B"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sign_up_deal_rcv"
+                android:layout_margin="@dimen/_5sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:visibility="gone"
+                android:id="@+id/daily_deal_layout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Deals"
+                    android:textColor="#06143B"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/daily_deal_rcv"
+                android:layout_margin="@dimen/_5sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:visibility="gone"
+                android:id="@+id/latest_deal_layout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Latest Deals"
+                    android:textColor="#06143B"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/latest_deal_rcv"
+                android:layout_margin="@dimen/_5sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_5sdp"
+                android:visibility="gone"
+                android:id="@+id/favourite_deal_layout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Favourite"
+                    android:textColor="#06143B"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/favourite_deal_rcv"
+                android:layout_margin="@dimen/_5sdp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
+</layout>

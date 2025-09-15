@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.StoreGiftCardActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:src="@drawable/half_circle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_main"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_below="@+id/tool_bar1"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/active_orange"
+                app:cardCornerRadius="@dimen/_15sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/active_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_1sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    app:cardBackgroundColor="@color/standered_white"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.makeramen.roundedimageview.RoundedImageView
+                                    android:id="@+id/act_card_bg_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:paddingTop="@dimen/_2sdp"
+                                    android:paddingRight="0.5dp"
+                                    app:riv_corner_radius_top_left="@dimen/_10sdp"
+                                    app:riv_corner_radius_top_right="@dimen/_10sdp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+
+                                    <TextView
+                                        android:id="@+id/act_giftPrice_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:layout_marginRight="@dimen/_20sdp"
+                                        android:fontFamily="@font/volte_bold"
+                                        android:textColor="@color/active_orange"
+                                        android:textSize="@dimen/_18sdp"
+                                        tools:text="£50" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:layout_marginRight="@dimen/_5sdp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_5sdp"
+                                        android:layout_weight="1.3"
+                                        android:gravity="left"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:fontFamily="@font/volte_semibold"
+                                            android:text="Expiry Date"
+                                            android:textColor="@color/red"
+                                            android:textSize="@dimen/_10sdp" />
+
+                                        <TextView
+                                            android:id="@+id/tvExpiriyDate"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/volte_semibold"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_12sdp"
+                                            tools:text="20 Sep 2022" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/giftTextActive_tv"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.5"
+                                        android:background="@drawable/background_donate_green_circle"
+                                        android:backgroundTint="@color/active_orange"
+                                        android:fontFamily="@font/volte_bold"
+                                        android:gravity="center|center_vertical"
+                                        android:paddingTop="@dimen/_3sdp"
+                                        android:paddingBottom="@dimen/_3sdp"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_11sdp"
+                                        tools:text="ACTIVE" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1">
+
+                                    <TextView
+                                        android:id="@+id/giftTextremarl_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="@dimen/_15sdp"
+                                        android:layout_marginTop="@dimen/_2sdp"
+                                        android:fontFamily="@font/volte_medium"
+                                        android:layout_gravity="right"
+                                        android:gravity="center"
+                                        android:textColor="@color/active_orange"
+                                        android:textSize="@dimen/_8sdp"
+                                        tools:text="dfskj;ljf;ldsk" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/act_agentImage"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:layout_gravity="bottom"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_5sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/buy_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/standered_white"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/r_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/card_bg_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:padding="@dimen/_2sdp"
+                                    android:scaleType="fitXY"
+                                    app:riv_corner_radius_top_left="@dimen/_14sdp"
+                                    app:riv_corner_radius_top_right="@dimen/_14sdp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <TextView
+                                        android:id="@+id/discount_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_25sdp"
+                                        android:layout_marginTop="@dimen/_35sdp"
+                                        android:fontFamily="@font/robotobold"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_14sdp"
+                                        tools:text="20% OFF" />
+
+                                    <TextView
+                                        android:id="@+id/giftPrice_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:layout_marginRight="@dimen/_20sdp"
+                                        android:fontFamily="@font/volte_bold"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_18sdp"
+                                        tools:text="£50" />
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_25sdp"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="visible"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/selling_price_tv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/volte_semibold"
+                                        android:gravity="center"
+                                        android:text="If you buy today only need to pay $40"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/agentImage"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_50sdp"
+                        android:layout_gravity="bottom"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_5sdp" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/agent_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/volte_bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            tools:text="Sambal Express" />
+
+        <TextView
+            android:id="@+id/agent_address_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/volte_medium"
+            tools:text="253 Northold Road, South Harrow, Harrow HA2 8HS(2.mi)" />
+
+        <TextView
+            android:id="@+id/tv_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:fontFamily="@font/volte_semibold"
+            android:text="Details"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/giftDescription_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/volte_medium"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend dolor ac eros maximus iaculis. Praesent vitae leo tincidunt, lobortis ex at, tincidunt augue. Nulla hendrerit purus eu dolor dictum, ac malesuada dolor commodo." />
+
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/tool_bar1"
+        layout="@layout/new_toolbar"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/buttons_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:id="@+id/gift_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/background_donate_green_circle"
+            android:backgroundTint="@color/blue_shade">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_gift_white"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:text="GIFT"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/redeem_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/background_donate_green_circle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_redeem_w"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:text="REDEEM"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/buy_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/background_donate_green"
+        android:backgroundTint="@color/blue_shade"
+        android:visibility="gone">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="BUY"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+    </RelativeLayout>
+</RelativeLayout>
+</layout>

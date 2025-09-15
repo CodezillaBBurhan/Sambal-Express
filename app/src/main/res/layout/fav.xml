@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="@dimen/padding_7dp"
+    android:layout_marginRight="@dimen/padding_7dp"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingStart="@dimen/padding_3dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/padding_10dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_7dp"
+            android:orientation="horizontal">
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="112dp"-->
+<!--                android:layout_height="112dp">-->
+
+                <RelativeLayout
+                    android:id="@+id/rl"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_gravity="right|center"
+                    android:gravity="start"
+                    android:visibility="visible"
+                    app:layout_constraintDimensionRatio="H, 4:4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/card_bg_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/mainimageplaceholder"
+                        android:visibility="visible"
+                        app:layout_constraintDimensionRatio="H,4:4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:riv_border_color="#333333"
+                        app:riv_border_width="0dip"
+                        app:riv_corner_radius="@dimen/padding_10dp"
+                        app:riv_mutate_background="true"
+                        app:riv_oval="false" />
+
+                </RelativeLayout>
+<!--            </androidx.cardview.widget.CardView>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/padding_7dp"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_product_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_semibold"
+                            android:lineSpacingExtra="1.5dp"
+                            android:maxLines="2"
+                            android:minLines="2"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            tools:text="Salman" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/root_layout"
+                            android:layout_gravity="end">
+
+                            <ImageView
+                                android:id="@+id/iv_favorite_icon"
+                                android:layout_width="17dp"
+                                android:layout_height="17dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/heartfulled"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/iv_non_favorite_icon"
+                                android:layout_width="17dp"
+                                android:layout_height="17dp"
+                                android:layout_gravity="right"
+                                android:src="@drawable/heartempty" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginTop="@dimen/padding_5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvFinalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left|center"
+                            android:layout_marginRight="@dimen/padding_15dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_bold"
+                            android:gravity="left|center"
+                            android:maxLines="1"
+                            android:singleLine="false"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            tools:text="$ 22.5000" />
+
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_marginRight="@dimen/padding_15dp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_bold"
+                            android:gravity="left|center"
+                            android:singleLine="false"
+                            android:textColor="@color/light_grey_for_text"
+                            android:textSize="12sp"
+                            tools:text="$ 22.700" />
+
+                        <TextView
+                            android:id="@+id/tvDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/volte_bold"
+                            android:gravity="left|center"
+                            android:singleLine="false"
+                            android:textColor="@color/red"
+                            android:textSize="12sp"
+                            tools:text="10% Off" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tv_left_days"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="left|center"
+                        android:textColor="@color/light_grey_for_text"
+                        android:textSize="10sp"
+                        android:visibility="visible"
+                        tools:text="Expire on -" />
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAgent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_3dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5px"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_marginRight="@dimen/padding_5dp"
+                    android:background="@color/light_grey"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <RelativeLayout
+                            android:id="@+id/rl1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_gravity="left|center"
+                            android:adjustViewBounds="true"
+                            android:gravity="left|right"
+                            android:maxHeight="@dimen/height"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="16:9"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <!---->
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:id="@+id/ivAgentImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="top|left"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/sponplaceholder"
+                                android:visibility="visible"
+                                app:layout_constraintDimensionRatio="H, 16:9"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:riv_border_color="#333333"
+                                app:riv_border_width="0dip"
+                                app:riv_corner_radius="4dip"
+                                app:riv_mutate_background="true"
+                                app:riv_oval="false" />
+
+
+                        </RelativeLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/tvagentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="@dimen/padding_5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/volte_semibold"
+                        android:gravity="left|center"
+                        android:maxLines="2"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"
+                        tools:text="AVS Superstore" />
+
+
+                    <LinearLayout
+                        android:layout_marginRight="@dimen/padding_5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_height="@dimen/padding_20dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tvRedeemTex"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/volte_medium"
+                            android:gravity="left|center"
+                            android:textColor="#E28A57"
+                            android:textSize="10sp"
+                            android:visibility="visible"
+                            tools:text="" />
+
+
+                        <ImageView
+                            android:id="@+id/ivLocatiopn"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="right|center"
+                            android:src="@drawable/map" />
+
+                        <TextView
+                            android:id="@+id/tvLocationmiles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right|center"
+                            android:fontFamily="@font/volte_medium"
+                            android:gravity="right|center"
+                            android:paddingStart="2dp"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            tools:text="0.00mi" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageView
+        android:id="@+id/iv_close_icon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_20dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="-13dp"
+        android:layout_weight="1"
+        android:elevation="8dp"
+        android:visibility="gone" />
+
+
+</LinearLayout>
+</layout>

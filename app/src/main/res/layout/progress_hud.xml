@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="20dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="20dp">
+
+    <!--android:background="@drawable/progress_hud_bg"-->
+
+    <ImageView
+        android:id="@+id/spinnerImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <com.razzaghimahdi78.dotsloading.circle.LoadingCircleFady
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dots_color="@color/colorPrimaryDark"
+            app:dots_duration="800"
+            app:dots_size="10dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/volte_semibold"
+        android:text="Please Wait"
+        android:textColor="@color/Border"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+</RelativeLayout>

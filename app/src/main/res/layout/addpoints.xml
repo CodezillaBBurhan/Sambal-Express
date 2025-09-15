@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/padding_30dp"
+        android:layout_height="@dimen/padding_30dp"
+        android:layout_gravity="right"
+        android:background="@drawable/llclosecirle">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:tint="#4D235C" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="@dimen/padding_5dp"
+        android:layout_marginRight="@dimen/padding_15dp"
+        android:background="@drawable/lldialogrounded"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/ticket_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:maxLines="5"
+                android:text="Enter the points voucher code"
+                android:textColor="#4D235C"
+                android:textSize="@dimen/sub_heading"
+                android:fontFamily="@font/volte_bold"
+                android:visibility="visible" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_20dp"
+                android:layout_marginTop="@dimen/padding_15dp"
+                android:layout_marginRight="@dimen/padding_20dp"
+                android:background="@drawable/llgreyborder">
+
+
+                <EditText
+                    android:id="@+id/exPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:hint="Enter Points"
+                    android:fontFamily="@font/volte_medium"
+                    android:inputType="number"
+                    android:textSize="@dimen/text12_5" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="@dimen/padding_15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="@dimen/padding_15dp"
+            android:background="@drawable/llpurpleround"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="SUBMIT"
+                android:fontFamily="@font/volte_bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text12_5" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/padding_7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:text="Successfully MyDD Points Awarded"
+            android:textColor="#37ad49"
+            android:textSize="@dimen/sub_heading"
+            android:fontFamily="@font/volte_bold"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

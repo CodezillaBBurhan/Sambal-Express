@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_opacity_pop">
+
+
+    <!--  android:background="@color/black_opacity_80"-->
+
+
+    <LinearLayout
+        android:id="@+id/main_popup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:background="@drawable/round_corners"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/volte_medium"
+            android:text="Mobile Number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/userMobile_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:drawableLeft="@drawable/ic_phone_dark"
+            android:drawablePadding="@dimen/_8sdp"
+            android:fontFamily="@font/volte_semibold"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/userplaceholder"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="0dp" />
+
+            <TextView
+                android:id="@+id/userName_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:fontFamily="@font/volte_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                tools:text="Gopalkannan" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/volte_medium"
+            android:text="How much would you like to gift(£)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <sambal.mydd.app.utils.ATMEditText
+            android:id="@+id/gift_amount_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:fontFamily="@font/volte_semibold"
+            android:hint="0.00"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/volte_medium"
+            android:text="Greeting Message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+        <EditText
+            android:id="@+id/message_etv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/recycler_bg_color"
+            android:gravity="top|left"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp" />
+
+        <Button
+            android:id="@+id/btn_send_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/llbluebtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/volte_bold"
+            android:gravity="center"
+            android:text="Send Gift"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_above="@+id/main_popup_layout"
+        android:background="@android:color/transparent"
+        android:src="@drawable/homewhiteclose" />
+
+
+</RelativeLayout>
+

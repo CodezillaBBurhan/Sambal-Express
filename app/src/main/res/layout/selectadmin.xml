@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7fa"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tvNFamilyDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/padding_20dp"
+            android:fontFamily="@font/volte_bold"
+            android:text="Assign Admin "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/padding_30dp"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/volte_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text13"
+                tools:text="Pargunan" />
+
+            <LinearLayout
+                android:id="@+id/llAdmin"
+                android:layout_width="80dp"
+                android:layout_height="@dimen/padding25"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/padding_7dp"
+                android:background="@drawable/llpurpleroundborder"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="ADMIN"
+                    android:textColor="#481e5e"
+                    android:textSize="@dimen/text13" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_20dp"
+            android:fontFamily="@font/volte_medium"
+            android:text="Please select anyone as a family head"
+            android:textColor="@color/light_grey_for_text"
+            android:textSize="13sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMember"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_10dp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="@dimen/padding_15dp"
+        android:background="@drawable/llpurpleround"
+        android:fontFamily="@font/volte_bold"
+        android:gravity="center"
+        android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btncancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/llcancel"
+        android:fontFamily="@font/volte_bold"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>
+</layout>

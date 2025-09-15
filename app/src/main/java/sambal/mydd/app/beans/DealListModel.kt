@@ -1,0 +1,3 @@
+package sambal.mydd.app.beans
+
+class DealListModel(var productId: String, var productName: String, var productDistance: String, var productAgentId: String, var productAgentName: String, var productAgentImage: String, var productLocation: String, var productFavourite: String, var productImage: String, var productCurrency: String, var productDiscountPercentageEnabled: String, var productDiscountPercentage: String, var productPrice: String, var productFinalPrice: String, var priceEnabledId: String, var priceEnabledStatus: String, var discountPriceEnabledId: String, var discountPriceEnabledStatus: String, var offerType: String, var offerTypeId: String, var dealExpiredDate: String, var dealExclusiveStatus: String, var productDDLoyaltyPrice: String)

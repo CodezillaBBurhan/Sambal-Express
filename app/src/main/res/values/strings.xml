@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">SAMBAL</string>
+    <string name="signUp_page_title">Sambal Express</string>
+    <string name="facebook_app_id">331668519516698</string>
+    <string name="fb_login_protocol_scheme">fb331668519516698</string>
+    <string name="facebook_client_token">04a3e75d7490a4778b632bfc23682e0b</string>
+
+    <string name="zecast_live">Zecast Live</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_phone_no">Phone number</string>
+    <string name="hint_default_country">Country</string>
+    <string name="hint_forgot_password">Forgot Password</string>
+    <string name="hint_password">Password</string>
+
+    <string name="signup_msg">We\'ll never post without your permission</string>
+    <string name="faq">FAQ</string>
+    <string name="OK">OK</string>
+    <string name="edit">EDIT</string>
+    <string name="confirm_description">Is this ok, or would you like to edit the \n number?</string>
+    <string name="confrim_heading">We will verifying the</string>
+    <string name="search">Search</string>
+
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_country">Please select country</string>
+    <string name="err_msg_phone_no">Enter valid phone number</string>
+
+    <string name="permissions_requested">In order the application to function properly, all the permissions are required.\nPlease enable them in the permissions settings.</string>
+
+    <!--    <string name="PermissionMessage">In order to access application please allow<b> Nearby Devices </b>and<b> Files and Media </b>permissions</string>-->
+
+    <string name="PermissionMessage">Please allow <b> Nearby Devices </b> permission to get notification from shops</string>
+
+    <string name="PermissionMessageCamera">In order to access application please allow<b> Camera </b>and<b> Files and Media </b>permissions</string>
+
+    <string name="default_notification_channel_id" translatable="false">sambal.mydd.app.ANDROID</string>
+    <!--    <string name="default_notification_channel_id"   translatable="false">my_channel_01</string>-->
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="close">CLOSE</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
+    <string name="enjoy_your_gift">Enjoy your gift.</string>
+    <string name="do_not_allow">Don\'t Ask Again</string>
+    <string name="cancle">Cancel</string>
+    <string name="allow">Allow</string>
+    <string name="continued">Continue</string>
+    <string name="no_internet_connection">Internet not found</string>
+
+
+    <string name="near_by_permission_msg1">Please allow</string>
+    <string name="near_by_permission_msg2">to access your Bluetooth permission to send notification.</string>
+    <string name="some_thing_went_wrong">Something went wrong!</string>
+    <string name="please_try_again_after_some_time">Please try again after sometime.</string>
+    <string name="please_try_again">Try Again</string>
+    <string name="app_name_store">Hillingdon Chamber of \n Commerce</string>
+    <string name="dummy_content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_title">Sambal Card</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
+

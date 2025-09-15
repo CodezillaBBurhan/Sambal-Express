@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+
+            <size
+                android:width="30dp"
+                android:height="30dp" />
+
+        </shape>
+
+    </item>
+    <item android:drawable="@drawable/homewhiteclose" />
+
+</layer-list>

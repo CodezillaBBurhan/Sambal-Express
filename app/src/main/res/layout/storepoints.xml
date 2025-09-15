@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:background="#f5f7fa"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/tool_bar1"
+            layout="@layout/new_toolbar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:padding="@dimen/_3sdp"
+            android:background="@drawable/llrightarrow_yellow"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/ivHisto"
+                android:layout_width="@dimen/padding_12dp"
+                android:layout_height="@dimen/padding_12dp"
+                android:src="@drawable/history_1"
+                android:visibility="visible" />
+
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tvHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/volte_semibold"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:text="History"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_location_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_toolbar_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/volte_bold"
+                    android:singleLine="true"
+                    android:text="Location"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:src="@drawable/downarrow"
+                    app:tint="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:orientation="vertical"
+                app:duration="800">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/my_wallet_shimmerview_layout" />
+
+                    <include layout="@layout/my_wallet_shimmerview_layout" />
+
+                    <include layout="@layout/my_wallet_shimmerview_layout" />
+
+                    <include layout="@layout/my_wallet_shimmerview_layout" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDeals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="#f0f2f4"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/llNoData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="-80dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/ic_store_points_empty" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginTop="@dimen/padding_20dp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:text="You haven't redeemed any store points yet."
+                    android:textColor="#101010"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:text="Keep collect from DD Partners outlets and \nearn points."
+                    android:textColor="@color/light_grey_for_text"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/some_thing_went_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar1"
+            android:id="@+id/store_point_page_error_layout"/>
+
+</RelativeLayout>
+</layout>

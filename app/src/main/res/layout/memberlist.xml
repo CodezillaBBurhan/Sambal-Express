@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7fa"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/header"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profileheader" />
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginTop="@dimen/padding_20dp"
+                    android:src="@drawable/lefarrow"
+                    android:tint="@color/white" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:layout_marginLeft="@dimen/padding_15dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/volte_bold"
+                    android:text="Family Account"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="@dimen/padding_15dp"
+            android:src="@drawable/family"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvNFamilyDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_10dp"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:fontFamily="@font/volte_bold"
+        android:text="Family Details"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/padding_30dp"
+                android:layout_marginRight="@dimen/padding_10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/volte_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text13"
+                    tools:text="Pargunan" />
+
+                <LinearLayout
+                    android:id="@+id/llAdmin"
+                    android:layout_width="80dp"
+                    android:layout_height="@dimen/padding25"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/padding_7dp"
+                    android:background="@drawable/llpurpleroundborder"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="ADMIN"
+                        android:textColor="#481e5e"
+                        android:textSize="@dimen/text13" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llExit"
+                    android:layout_width="80dp"
+                    android:layout_height="@dimen/padding25"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/padding_7dp"
+                    android:background="@drawable/llredfamily"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvExit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#f05922"
+                        android:textSize="@dimen/text12_5"
+                        tools:text="Exit" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMember"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/padding_10dp" />
+
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/llpurpleround"
+                android:gravity="center"
+                android:text="Add"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
+</layout>

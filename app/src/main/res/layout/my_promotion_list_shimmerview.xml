@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_80sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/background_selected_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/promotion_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/volte_bold"
+            tools:text="Total Items"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/shimmer_background"
+            android:textSize="@dimen/_15sdp" />
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@drawable/dotted_line_vertical"
+            android:layout_margin="@dimen/_5sdp"
+            android:layerType="software" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:padding="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/agent_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:fontFamily="@font/volte_semibold"
+                android:singleLine="true"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:background="@color/shimmer_background"
+                tools:text="fsdfsdfsdsdsdsdsdsxcxcxdsdsdsdsd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/agent_tv">
+
+
+                <TextView
+                    android:id="@+id/agent_address_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/volte_medium"
+                    android:textColor="@color/shader_color"
+                    android:textSize="@dimen/_12sdp"
+                    tools:text="40"
+                    android:gravity="start"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:maxLines="3"
+                    android:background="@color/shimmer_background"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/valid_untile_tv"
+                android:layout_width="4dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="3dp"
+                android:background="@color/shimmer_background"
+                android:fontFamily="@font/volte_medium"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_10sdp"
+                tools:text="40" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:src="@drawable/left_round" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:src="@drawable/right_round" />
+    </LinearLayout>
+</RelativeLayout>

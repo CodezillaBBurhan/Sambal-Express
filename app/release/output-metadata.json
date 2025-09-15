@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "sambal.mydd.app",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 74,
+      "versionName": "7.4",
+      "outputFile": "Sambal Express_12_Sep.apk"
+    }
+  ],
+  "elementType": "File"
+}

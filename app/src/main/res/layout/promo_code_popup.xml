@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:padding="10dp">
+
+
+    <ImageButton
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_cancel_circle" />
+
+
+    <TextView
+        android:id="@+id/popup_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confrim_heading"
+        android:textColor="@color/black"
+        android:fontFamily="@font/volte_medium"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_23sdp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+
+    <Button
+        android:id="@+id/popup_yes_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:background="@drawable/rounded_corner_with_yellow_background"
+        android:gravity="center"
+        android:text="Button"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_15sdp"
+        android:backgroundTint="@color/yellow"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_5sdp"
+   />
+
+
+
+</LinearLayout>
+

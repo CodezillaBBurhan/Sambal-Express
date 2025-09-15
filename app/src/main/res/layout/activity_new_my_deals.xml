@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.NewMyDealsActivity">
+
+        <include layout="@layout/tool_bar_colour" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/notification_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                app:srcCompat="@drawable/ic_notify_yellow" />
+
+
+            <LinearLayout
+                android:id="@+id/llNoti"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_gravity="top|right"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:background="@drawable/llredcircele"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNotiCounts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:orientation="vertical"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/volte_medium"
+                    android:visibility="visible"
+                    tools:text="45" />
+            </LinearLayout>
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tool_barLayout"
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/search_bar_layout">
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/background_selected_white"
+                android:src="@drawable/ic_categories_deals"
+                android:id="@+id/all_category_img" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_selected_white"
+                android:drawableLeft="@drawable/quantum_ic_search_grey600_24"
+                android:drawablePadding="@dimen/_5sdp"
+                android:hint="Search here"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                style="@style/InvisibleFocusHolder"
+                android:id="@+id/search_etv"
+                android:fontFamily="@font/volte_semibold" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EBECF0"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:id="@+id/main_nestedscrollview"
+            android:layout_below="@+id/search_bar_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_6sdp"
+                        android:fontFamily="@font/volte_medium"
+                        android:singleLine="true"
+                        android:text="Location"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_15sdp" />
+                    <!-- android:drawableRight="@drawable/ic_arrow_down"
+                                android:drawablePadding="@dimen/_5sdp"-->
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:src="@drawable/downarrow"
+                        app:tint="@color/colorPrimary"
+                        android:id="@+id/down_arrow_img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:weightSum="5"
+                    android:visibility="gone"
+                    android:id="@+id/my_pramotion_layout">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="My Promotions"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone"
+                        android:id="@+id/my_pramotion_view_all_tv" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/my_pramotion_rcv"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:weightSum="5"
+                    android:visibility="gone"
+                    android:id="@+id/sign_up_deal_layout">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sign up Deals"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone"
+                        android:id="@+id/sign_up_deal_tv" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sign_up_deal_rcv"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:weightSum="5"
+
+                    android:visibility="gone"
+                    android:id="@+id/daily_deal_layout">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Deals"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone"
+                        android:id="@+id/daily_deal_tv" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daily_deal_rcv"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:weightSum="5"
+                    android:visibility="gone"
+                    android:id="@+id/latest_deal_layout">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Latest Deals"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone"
+                        android:id="@+id/latest_deal_tv" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/latest_deal_rcv"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:weightSum="5"
+                    android:visibility="gone"
+                    android:id="@+id/favourite_deal_layout">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Favourite"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone"
+                        android:id="@+id/favourite_deal_tv" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/favourite_deal_rcv"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_5sdp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_below="@+id/search_bar_layout"
+            android:layout_marginBottom="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:orientation="vertical"
+            app:duration="800"
+            android:background="#EBECF0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7"
+                        android:background="@color/shimmer_background" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="View All"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:layout_weight="1.3"
+                        android:backgroundTint="@color/shimmer_background" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <include layout="@layout/my_promotion_shimmerview" />
+
+                    <include layout="@layout/my_promotion_shimmerview" />
+
+                    <include layout="@layout/my_promotion_shimmerview" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Sign up Deals"
+                        android:background="@color/shimmer_background"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="View All"
+                        android:backgroundTint="@color/shimmer_background"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="Sign up Deals"
+                        android:background="@color/shimmer_background"
+                        android:textColor="#06143B"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_weight="3.7" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:text="View All"
+                        android:backgroundTint="@color/shimmer_background"
+                        android:textAllCaps="true"
+                        android:background="@drawable/background_selected"
+                        android:textColor="@color/white"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_weight="1.3"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+
+                    <include layout="@layout/daily_deal_shimmerview" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <include
+            layout="@layout/some_thing_went_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_barLayout"
+            android:id="@+id/my_deal_page_error_layout"/>
+</RelativeLayout>
+</layout>

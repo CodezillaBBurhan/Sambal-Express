@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentTop="true"
+       tools:text="01"
+       android:textSize="@dimen/_8sdp"
+       android:fontFamily="@font/robotomedium"
+       android:textColor="@color/white"
+       android:id="@+id/title_tv"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        tools:text="01"
+        android:textSize="@dimen/_8sdp"
+        android:fontFamily="@font/robotomedium"
+        android:textColor="@color/white"
+        android:id="@+id/end_title_tv"
+        android:visibility="visible"
+        />
+    <FrameLayout
+        android:id="@+id/progress_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_tv"
+        >
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:max="100"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:id="@+id/progress_bar"
+        android:progressDrawable="@drawable/progress_drawable" />
+
+        <TextView
+            android:id="@+id/points_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="0 points"
+            android:textColor="#FFF"
+            android:textSize="12sp"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/robotomedium"/>
+    </FrameLayout>
+
+
+</RelativeLayout>
+</layout>

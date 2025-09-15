@@ -1,0 +1,10 @@
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:height="1dp"
+        android:width="1dp"
+        android:color="@color/videoBtn_red" />
+    <!--#fc2b58-->
+
+    <corners android:radius="@dimen/_5sdp" />
+</shape>

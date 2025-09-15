@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f5f7fa"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/tool_bar_colour" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="left|center"
+                        android:text="Categories"
+                        android:textColor="#222a3c"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/tvAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:gravity="left|center"
+                        android:text="View all"
+                        android:fontFamily="@font/volte_semibold"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/ivAll"
+                        android:layout_width="@dimen/padding_15dp"
+                        android:layout_height="@dimen/padding_15dp"
+                        android:layout_gravity="left|center"
+                        android:layout_marginLeft="@dimen/padding_5dp"
+                        android:src="@drawable/newrarrow" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:fontFamily="@font/volte_bold"
+        tools:text="No Followings"
+        android:textSize="@dimen/_15sdp" />
+</RelativeLayout>
+</layout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black_opacity_80"
+    android:gravity="top"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/padding_30dp"
+        android:layout_height="@dimen/padding_30dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:background="@drawable/llclosecirle">
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/homewhiteclose" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="@dimen/padding25"
+            android:layout_marginRight="@dimen/padding_15dp"
+            android:background="@drawable/ic_curve_right"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_7dp"
+                android:layout_marginBottom="@dimen/padding_5dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/volte_bold"
+                android:gravity="center"
+                android:text="Report to Admin"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:visibility="visible" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_3dp"
+                android:layout_marginBottom="@dimen/padding_5dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/volte_medium"
+                android:gravity="center"
+                android:text="Only admin can see this"
+                android:textColor="@color/light_grey_for_text"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_3dp"
+                android:layout_marginRight="@dimen/padding_3dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_5dp"
+                    android:layout_marginRight="@dimen/padding_5dp"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/padding_7dp"
+                        android:layout_marginBottom="@dimen/padding_5dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/volte_bold"
+                        android:gravity="left|center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        tools:text="Gopalakannna" />
+
+
+                    <sambal.mydd.app.utils.SquareImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/padding_10dp"
+                        android:layout_marginTop="@dimen/padding_5dp"
+                        android:layout_marginRight="@dimen/padding_10dp"
+                        android:layout_marginBottom="@dimen/padding_5dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder_4_3"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvUserMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_marginTop="@dimen/padding_3dp"
+                        android:layout_marginBottom="@dimen/padding_5dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="left|center"
+                        android:letterSpacing="0.02"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="#101010"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_marginTop="@dimen/padding_3dp"
+                        android:layout_marginBottom="@dimen/padding_5dp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/volte_bold"
+                        android:gravity="left|center"
+                        android:letterSpacing="0.02"
+                        android:lineSpacingExtra="2dp"
+                        android:text="Comment :"
+                        android:textColor="#101010"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/llgreymsg"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/etMsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top"
+                            android:layout_margin="@dimen/padding_5dp"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/volte_medium"
+                            android:gravity="left"
+                            android:hint="Message"
+                            android:minLines="4"
+                            android:textColor="#101010"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="@dimen/padding_10dp"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:background="@drawable/llsingupcontinuegree"
+                        android:fontFamily="@font/volte_bold"
+                        android:gravity="center"
+                        android:text="SUBMIT"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--android:layout_marginTop="150dp"-->
+
+</LinearLayout>
+

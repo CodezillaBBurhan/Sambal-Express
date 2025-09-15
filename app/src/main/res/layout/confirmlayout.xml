@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fl_signup_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="right|center"
+            android:visibility="visible"
+            android:layout_marginTop="-18dp"
+            android:layout_marginRight="-12dp"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_py_circle" />
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/sign_up_confirm_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_140sdp"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_phone_verifying" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_7dp"
+                        android:text="@string/zecast_live"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/top_heading"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/padding_20dp"
+                                android:fontFamily="@font/volte_semibold"
+                                android:gravity="center"
+                                android:text="We will be verifying the \n phone number"
+                                android:textColor="@color/grey"
+                                android:textSize="@dimen/_14sdp" />
+
+
+
+                            <TextView
+                                android:id="@+id/confirm_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:fontFamily="@font/volte_semibold"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/padding_5dp"
+                                tools:text="sfnskdn"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15sdp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/volte_medium"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/padding_20dp"
+                                android:text="@string/confirm_description"
+                                android:textColor="@color/light_grey_for_text"
+                                android:textSize="@dimen/description" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_20sdp"
+            android:paddingTop="1px">
+
+            <LinearLayout
+                android:id="@+id/confirm_edit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_3sdp"
+                android:background="@drawable/llnumber"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:text="Edit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    app:srcCompat="@drawable/ic_right_aa" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirm_ok_btn"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="@dimen/_3sdp"
+                android:background="@drawable/llgreen"
+                android:layout_weight="1">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:fontFamily="@font/volte_semibold"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/padding_10dp"
+                    android:text="Ok"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    app:srcCompat="@drawable/ic_right_aa" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

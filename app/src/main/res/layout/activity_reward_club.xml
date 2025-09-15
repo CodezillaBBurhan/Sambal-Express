@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.reward_club.RewardClubActivity">
+
+        <include layout="@layout/tool_bar_colour" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_barLayout"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/clubPointsRemarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        tools:text="10 Hillingdon Rewards Points = 1 Club Point"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- Spacer -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@android:color/transparent" />
+
+                    <!-- Progress bar with label -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/progress_point_rcv"
+                            android:nestedScrollingEnabled="false"
+                            android:overScrollMode="never"/>
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:visibility="gone"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/pointsValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2000 points"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="32dp"/>
+
+                            <SeekBar
+                                android:id="@+id/pointsSeekBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:max="2000"
+                                android:progress="2000"/>
+
+                            <LinearLayout
+                                android:id="@+id/currencyLabels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_marginTop="16dp">
+
+                                <!-- Labels will be added dynamically -->
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Points Text -->
+
+                    </LinearLayout>
+
+                    <!-- Spacer -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@android:color/transparent" />
+
+
+                    <!-- Info Text -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:id="@+id/clubPointsEarnedRemarks"
+                        tools:text="You have already earned 3,200 points\n£2.50 worth of membership free only need to"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:id="@+id/clubPointsPaymentRemarks"
+                        tools:text="pay £7.50 to join the Hillingdon club membership for 1 year!"
+                        android:textAlignment="center"
+                        android:textColor="@color/yellow_text_color"
+                        android:textSize="14sp" />
+
+                    <!-- CTA Button -->
+                    <Button
+                        android:visibility="gone"
+                        android:id="@+id/activate_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/volte_semibold"
+                        android:paddingHorizontal="@dimen/_50sdp"
+                        android:text="Activate Now"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_14sdp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end"
+                        android:visibility="gone"
+                        android:id="@+id/already_activated_layout">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Active: "
+                            android:textSize="@dimen/_12sdp"
+                            android:textAllCaps="true"
+                            android:textColor="@color/grocerygreen"
+                            android:fontFamily="@font/volte_semibold"/>
+                        <TextView
+                            android:id="@+id/total_remaining_days_count_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="120 days remaining"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/volte_semibold"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/category_rcv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"/>
+                <!--
+                 tools:listitem="@layout/reward_category_list"
+                    tools:itemCount="10"
+                -->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/deal_rcv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="10"
+                    android:visibility="gone"
+                    tools:listitem="@layout/reward_deal_list" />
+                <TextView
+                    android:id="@+id/tvNOData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:fontFamily="@font/volte_medium"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:drawableTop="@drawable/no_deal_found"
+                    android:text="No Data Found"
+                    android:textColor="@color/light_grey_for_text"
+                    android:textSize="@dimen/padding_15dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

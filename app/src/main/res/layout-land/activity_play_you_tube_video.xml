@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="sambal.mydd.app.activity.PlayVideoActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <!--  <com.google.android.youtube.player.YouTubePlayerView
+          android:id="@+id/youtube_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:visibility="visible" />-->
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:autoPlay="false"
+        />
+
+    <ImageButton
+        android:id="@+id/ib_back_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginBottom="@dimen/padding_7dp"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/padding_5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/back"
+        android:visibility="gone" />
+
+</RelativeLayout>

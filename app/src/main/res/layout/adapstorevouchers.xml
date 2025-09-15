@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/padding_7dp"
+    android:layout_marginRight="@dimen/padding_7dp"
+    android:layout_marginBottom="13dp"
+    android:background="@color/white"
+    card_view:cardCornerRadius="@dimen/padding_10dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/padding_3dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvAgentCompanyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_7dp"
+                    android:layout_marginRight="@dimen/padding_7dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/volte_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="ABCD Shop" />
+
+
+                <ImageView
+                    android:id="@+id/ivNoti"
+                    android:layout_width="14dp"
+                    android:layout_height="@dimen/padding_20dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/notifyblack"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_7dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/padding_7dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="@dimen/padding_15dp"
+                    android:layout_height="@dimen/padding_15dp"
+                    android:layout_gravity="left|center"
+                    android:src="@drawable/map"
+                    android:tint="#a5a5a5" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvagentAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="left|center"
+                        android:paddingStart="@dimen/padding_3dp"
+                        android:textColor="#101010"
+                        android:textSize="12sp"
+                        tools:text="Ruslip" />
+
+
+                    <TextView
+                        android:id="@+id/tvAgentDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:fontFamily="@font/volte_medium"
+                        android:gravity="left|center"
+                        android:paddingStart="2dp"
+                        android:textColor="#007cfa"
+                        android:visibility="gone"
+                        android:textSize="10sp"
+                        tools:text=" (2.21)" />
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:textColor="@color/blue_basic_theme"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginLeft="@dimen/padding_7dp"
+                android:layout_marginRight="@dimen/padding_7dp"
+                android:background="@color/lightGrayColor" />
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.5px"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:background="@color/light_grey_for_text"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/llVoucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_7dp"
+                android:background="@drawable/lldrawableredeem"
+                android:layout_marginRight="@dimen/padding_7dp"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="@dimen/padding25"
+                        android:layout_gravity="left|center"
+                        android:background="@drawable/llcirclepurple"
+                        android:elevation="1dp"
+                        android:visibility="visible" />
+
+
+
+                    <LinearLayout
+                        android:id="@+id/llRdeem"
+                        android:layout_marginTop="@dimen/padding_3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/padding_10dp"
+                            android:layout_marginBottom="@dimen/padding_10dp"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="visible">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:gravity="left|center"
+                                    android:layout_gravity="center">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:orientation="horizontal">
+
+
+                                        <TextView
+                                            android:id="@+id/tvAvailable"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left|center"
+                                            android:layout_marginLeft="@dimen/padding_20dp"
+                                            android:fontFamily="@font/volte_medium"
+                                            android:gravity="left|center"
+                                            android:lineSpacingExtra="1dp"
+                                            android:text="Available Balance"
+                                            android:textColor="@color/white"
+                                            android:textSize="12sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tvBalance"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left|center"
+                                            android:layout_marginLeft="@dimen/padding_10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:lineSpacingExtra="1dp"
+                                            android:textColor="#fcef3b"
+                                            android:textSize="14sp"
+                                            android:singleLine="true"
+                                            android:fontFamily="@font/volte_bold"
+                                            tools:text="$40" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvRedeemedPrice"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/padding_20dp"
+                                        android:maxLines="2"
+                                        android:text="adnhash sakjdfkjds  lakj asikf hd skjhfkj"
+                                        android:visibility="gone"
+                                        android:layout_marginRight="@dimen/padding_10dp"
+                                        android:fontFamily="@font/volte_medium"
+                                        android:gravity="left|center"
+                                        android:textColor="#fcef3b"
+                                        android:textSize="12sp" />
+
+                                </LinearLayout>
+
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/doticon"
+                                    android:backgroundTint="@color/white" />
+
+                                <LinearLayout
+                                    android:id="@+id/llRedeem"
+                                    android:layout_width="100dp"
+                                    android:layout_height="@dimen/padding_30dp"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/padding_10dp"
+                                    android:layout_marginRight="@dimen/padding_5dp"
+                                    android:gravity="left|center"
+                                    android:background="@drawable/llyellow"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <FrameLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/tvRedeem"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:text="Redeem"
+                                            android:textColor="@color/newpurple"
+                                            android:textSize="12sp"
+                                            android:fontFamily="@font/volte_bold" />
+
+
+                                        <ImageView
+                                            android:layout_width="@dimen/padding_10dp"
+                                            android:layout_height="@dimen/padding_10dp"
+                                            android:layout_gravity="right|center"
+                                            android:layout_marginRight="@dimen/padding_15dp"
+                                            android:src="@drawable/redeemroght"
+                                            android:tint="@color/newpurple"
+                                            android:visibility="visible" />
+
+                                    </FrameLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="10dp"
+                                    android:layout_height="@dimen/padding25"
+                                    android:layout_gravity="right|center"
+                                    android:background="@drawable/llhalfcirclerightpurple"
+                                    android:elevation="1dp"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/voucherListRcv"/>
+            <LinearLayout
+                android:id="@+id/giftcard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:layout_marginBottom="@dimen/padding_5dp"
+                android:background="@color/standered_white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_7dp"
+                    android:layout_marginRight="@dimen/padding_7dp"
+                    android:layout_marginTop="@dimen/padding_5dp"
+                    android:fontFamily="@font/volte_bold"
+                    android:text="Store Gift Card"
+                    android:textColor="#101010"
+                    android:textSize="13sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/giftCard_rcv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="3.5dp"
+                    android:layout_marginBottom="@dimen/padding_3dp"
+                    android:background="@color/standered_white"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lloffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_7dp"
+                    android:layout_marginRight="@dimen/padding_7dp"
+                    android:fontFamily="@font/volte_bold"
+                    android:text="Our Offer"
+                    android:textColor="#101010"
+                    android:textSize="13sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="3.5dp"
+                    android:layout_marginBottom="@dimen/padding_3dp"
+                    android:background="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
+</layout>
