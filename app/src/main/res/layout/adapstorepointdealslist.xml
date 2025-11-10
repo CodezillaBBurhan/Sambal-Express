@@ -273,7 +273,7 @@
                 android:layout_height="wrap_content"
                 tools:text="@string/app_name"
                 android:layout_below="@+id/main_constraint"
-                android:textColor="#26282d"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/volte_semibold"
                 android:id="@+id/agent_name_tv"

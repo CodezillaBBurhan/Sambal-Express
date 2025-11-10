@@ -74,8 +74,16 @@ class VerifyNumber : AppCompatActivity(), View.OnClickListener {
 
         // below line is for getting instance
         // of our FirebaseAuth.
-
-        mAuth = FirebaseAuth.getInstance();
+        try {
+            // Ensure Firebase is initialized
+            if (FirebaseApp.getApps(this).isEmpty()) {
+                FirebaseApp.initializeApp(this)
+            }
+            mAuth = FirebaseAuth.getInstance()
+        } catch (e: Exception) {
+            ErrorMessage.E("Firebase initialization error: ${e.message}")
+            e.printStackTrace()
+        }
     }
 
     private val bundle: Unit
@@ -708,9 +716,10 @@ class VerifyNumber : AppCompatActivity(), View.OnClickListener {
             // sends our OTP code due to any error or issue.
             override fun onVerificationFailed(e: FirebaseException) {
                 // displaying error message with firebase exception.
-
-                ErrorMessage.E("FirebaseExceptionhhii        $e.message")
-
+                val errorMessage = e.message ?: "Unknown error"
+                
+                ErrorMessage.E("FirebaseException: $errorMessage | Exception: ${e.javaClass.simpleName}")
+                e.printStackTrace()
 
                 if (loadingbarforfetchingdata != null) {
                     loadingbarforfetchingdata!!.dismiss()
@@ -736,12 +745,23 @@ class VerifyNumber : AppCompatActivity(), View.OnClickListener {
                     val tvTitle = permissionDialog!!.findViewById<TextView>(R.id.popup_content)
                     tvTitle.visibility = View.VISIBLE
 
-
-                    if (e is FirebaseAuthInvalidCredentialsException) {
-                        tvTitle.text =
-                            "Invalid mobile number. Please try with a valid mobile number"
-                    } else {
-                        tvTitle.text = "${e.message}"
+                    // Handle specific error cases
+                    when {
+                        e is FirebaseAuthInvalidCredentialsException -> {
+                            tvTitle.text = "Invalid mobile number. Please try with a valid mobile number"
+                        }
+                        errorMessage.contains("CONFIGURATION_NOT_FOUND", ignoreCase = true) -> {
+                            tvTitle.text = "Phone Authentication is not configured. Please contact support or check Firebase Console settings."
+                        }
+                        errorMessage.contains("QUOTA_EXCEEDED", ignoreCase = true) -> {
+                            tvTitle.text = "SMS quota exceeded. Please try again later."
+                        }
+                        errorMessage.contains("NETWORK", ignoreCase = true) -> {
+                            tvTitle.text = "Network error. Please check your internet connection and try again."
+                        }
+                        else -> {
+                            tvTitle.text = "Verification failed: $errorMessage"
+                        }
                     }
 
                     val btnOk = permissionDialog!!.findViewById<TextView>(R.id.popup_yes_btn)

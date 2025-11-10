@@ -528,9 +528,12 @@ class Refer_FriendActivity : BaseActivity() {
                                     binding!!.appliedPromoCodeLayout.visibility = View.GONE
                                     binding!!.promoCodeTitleTv.visibility = View.GONE
                                 }
-                                Generate_Bitmap(example!!.getResponse().userRefer[0].referralImage)
-                                val dynamicLink = FirebaseDynamicLinks.getInstance()
-                                    .createDynamicLink() /*refer?promocode=*/
+                                binding!!.referralURLTv.text = "" + example!!.getResponse().userRefer[0].referralShareURL
+                                binding!!.ivQR.setImageBitmap(generateQR(
+                                    example!!.getResponse().userRefer[0].getReferralShareURL()))
+                               /* Generate_Bitmap(example!!.getResponse().userRefer[0].referralShareURL)*/
+                               /* val dynamicLink = FirebaseDynamicLinks.getInstance()
+                                    .createDynamicLink() *//*refer?promocode=*//*
                                     .setLink(Uri.parse("https://ddpoints.page.link/" + example!!.getResponse().userRefer[0].referralCode))
                                     .setDomainUriPrefix("https://ddpoints.page.link")
                                     .setAndroidParameters(AndroidParameters.Builder("sambal.mydd.app")
@@ -556,7 +559,7 @@ class Refer_FriendActivity : BaseActivity() {
                                             } else {
                                                 Log.e("Errro", task.exception.toString() + "")
                                             }
-                                        }
+                                        }*/
                             } else {
                                 AppUtil.showMsgAlert(binding!!.tvAvailable,
                                     obj.optString("message"))
@@ -1083,9 +1086,13 @@ ${binding!!.referralURLTv.text}""")
                                     }
                                 } catch (e: Exception) {
                                 }
-                                Generate_Bitmap(example!!.getResponse().userRefer[0].referralImage)
-                                val dynamicLink = FirebaseDynamicLinks.getInstance()
-                                    .createDynamicLink() /*refer?promocode=*/
+                                /*Generate_Bitmap(example!!.getResponse().userRefer[0].referralImage)*/
+                                binding!!.referralURLTv.text = "" + example!!.getResponse().userRefer[0].referralShareURL
+                                binding!!.ivQR.setImageBitmap(generateQR(
+                                    example!!.getResponse().userRefer[0].getReferralShareURL()))
+                               // Generate_Bitmap(example!!.getResponse().userRefer[0].referralShareURL)
+                               /* val dynamicLink = FirebaseDynamicLinks.getInstance()
+                                    .createDynamicLink() *//*refer?promocode=*//*
                                     .setLink(Uri.parse("https://ddpoints.page.link/" + example!!.getResponse().userRefer[0].referralCode))
                                     .setDomainUriPrefix("https://ddpoints.page.link")
                                     .setAndroidParameters(AndroidParameters.Builder("sambal.mydd.app")
@@ -1111,7 +1118,7 @@ ${binding!!.referralURLTv.text}""")
                                             } else {
                                                 Log.e("Errro", task.exception.toString() + "")
                                             }
-                                        }
+                                        }*/
                             } else {
                                 AppUtil.showMsgAlert(binding!!.tvAvailable,
                                     obj.optString("message"))

@@ -155,10 +155,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, RefreshFragmentC
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.tab_chat -> {
-                  /*  ErrorMessage.I(this@MainActivity, ViewAndEarnActivity::class.java, null)
-*/
-                    try {
-                        StatusBarcolor.setStatusbarColor(this@MainActivity, "")
+
+                  /*  try {
+                       // StatusBarcolor.setStatusbarColor(this@MainActivity, "")
                         if (chatLocationFavourite == null) {
                             chatLocationFavourite = ChatLocationFavourite()
 
@@ -189,7 +188,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, RefreshFragmentC
                     binding!!.mainActivity.appbar.ivNoti.setImageDrawable(this.resources.getDrawable(R.drawable.bell))
                     val intent = Intent("Refresh_Chat_Fragment")
                     LocalBroadcastManager.getInstance(this@MainActivity).sendBroadcast(intent)
-                    return@OnNavigationItemSelectedListener true
+                    return@OnNavigationItemSelectedListener true*/
+                    startActivity(Intent(this@MainActivity, MY_PromotionActivity::class.java))
                 }
             }
             false
@@ -569,7 +569,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, RefreshFragmentC
                         is ChatLocationFavourite -> {
                             try {
                                 // Set status bar color and change UI elements as needed
-                                StatusBarcolor.setStatusbarColor(this@MainActivity, "")
+                             //   StatusBarcolor.setStatusbarColor(this@MainActivity, "")
                                 binding!!.mainActivity.navView.selectedItemId = R.id.tab_home
                             } catch (e: Exception) {
                                 e.printStackTrace()  // Log any potential exception
@@ -655,7 +655,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, RefreshFragmentC
         } catch (_: Exception) {
         }
         try {
-            //StatusBarcolor.setStatusbarColor(MainActivity.this, "white");
+            StatusBarcolor.setStatusbarColor(this@MainActivity, "home");
             DealDioApplication.instance!!.setConnectivityListener(this@MainActivity)
         } catch (_: Exception) {
         }
@@ -703,7 +703,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, RefreshFragmentC
                     visibleFragment = false
                 } else if (fragment is ChatLocationFavourite) {
                     try {
-                        StatusBarcolor.setStatusbarColor(this@MainActivity, "")
+                      //  StatusBarcolor.setStatusbarColor(this@MainActivity, "")
                         binding!!.mainActivity.navView.selectedItemId = R.id.tab_chat
                     } catch (_: Exception) {
                     }

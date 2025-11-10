@@ -8,7 +8,7 @@ android {
             keyAlias 'DealDioApp'
             keyPassword 'codezilla123'
            // storeFile file('/Users/admin/Documents/DD/codezilla-android-dealdio/JKS/DealDioApp.jks')
-            storeFile file('/Users/admin/Documents/DD/Balt\\ APP/JKS/DealDioApp.jks')
+            storeFile file('/Users/czm056/Documents/Burhan/DD/Sambal-Express/JKS/DealDioApp.jks')
 
             storePassword 'codezilla123'
         }
@@ -109,6 +109,9 @@ dependencies {
     implementation 'androidx.activity:activity:1.8.0'
     implementation 'androidx.media3:media3-exoplayer:1.7.1'
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
     implementation 'com.squareup.picasso:picasso:2.5.2'

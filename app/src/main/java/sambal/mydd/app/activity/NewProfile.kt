@@ -1,5 +1,6 @@
 package sambal.mydd.app.activity
 
+
 import android.Manifest
 import android.graphics.Bitmap
 import sambal.mydd.app.adapter.AdapterNewProfileCards
@@ -25,8 +26,10 @@ import android.graphics.BitmapFactory
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Matrix
 import android.media.ExifInterface
+import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.util.Log
@@ -38,6 +41,8 @@ import android.widget.TextView
 import android.view.WindowManager
 import android.view.WindowManager.BadTokenException
 import android.widget.ImageView
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import sambal.mydd.app.R
 import sambal.mydd.app.SplashActivity
@@ -59,11 +64,19 @@ class NewProfile : BaseActivity(), View.OnClickListener {
     var packageManager1: PackageManager? = null
     var picturePath: String? = null
     var userChoosenTask: String? = null
-    var mPermission = arrayOf(
-        Manifest.permission.CAMERA,
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_FINE_LOCATION)
+    var mPermission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )
+    } else {
+        arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        )
+    }
     var arrQrCode: JSONArray? = null
     var doorNo = ""
     var StreetName = ""
@@ -72,8 +85,14 @@ class NewProfile : BaseActivity(), View.OnClickListener {
     var adress = ""
     var mainAdd = ""
     private val REQUEST_CAMERA = 0
-    private val SELECT_FILE = 1
     var removeAccount = 0
+
+    // Photo Picker launcher
+    private val photoPickerLauncher = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri: Uri? ->
+        uri?.let {
+            onSelectFromPhotoPicker(it)
+        }
+    }
 
     override val contentResId: Int
         get() = R.layout.myprofile
@@ -279,15 +298,10 @@ class NewProfile : BaseActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.ivEdit -> try {
-                if ((ActivityCompat.checkSelfPermission(this@NewProfile, mPermission[0])
-                            != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
-                        this@NewProfile,
-                        mPermission[1])
-                            != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
-                        this@NewProfile,
-                        mPermission[2])
-                            != PackageManager.PERMISSION_GRANTED)
-                ) {
+                val isPermissionMissing = mPermission.any {
+                    ActivityCompat.checkSelfPermission(this@NewProfile, it) != PackageManager.PERMISSION_GRANTED
+                }
+                if (isPermissionMissing) {
                     ActivityCompat.requestPermissions(this, mPermission, REQUEST_CODE_PERMISSION)
                 } else {
                     selectImage()
@@ -410,13 +424,17 @@ class NewProfile : BaseActivity(), View.OnClickListener {
         val builder = AlertDialog.Builder(this@NewProfile, R.style.MyDialogTheme)
         builder.setTitle("Add Photo!")
         builder.setItems(items) { dialog, item ->
-            val result = Utility.checkPermission(this@NewProfile)
             if (items[item] == "Take Photo") {
                 userChoosenTask = "Take Photo"
-                if (result) cameraIntent()
+                if (ActivityCompat.checkSelfPermission(this@NewProfile, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    cameraIntent()
+                } else {
+                    ActivityCompat.requestPermissions(this@NewProfile, arrayOf(Manifest.permission.CAMERA), REQUEST_CODE_PERMISSION)
+                }
             } else if (items[item] == "Choose from Gallery") {
                 userChoosenTask = "Choose from Gallery"
-                if (result) galleryIntent()
+                // Use Photo Picker - no permission needed
+                photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
             } else if (items[item] == "Cancel") {
                 dialog.dismiss()
             }
@@ -424,35 +442,29 @@ class NewProfile : BaseActivity(), View.OnClickListener {
         builder.show()
     }
 
-    private fun galleryIntent() {
-        val galleryIntent = Intent(Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+    private fun onSelectFromPhotoPicker(uri: Uri) {
+        try {
+            val inputStream = contentResolver.openInputStream(uri)
+            val file = File(cacheDir, "temp_image_${System.currentTimeMillis()}.jpg")
+            val outputStream = FileOutputStream(file)
 
-        // Start the Intent
-        startActivityForResult(galleryIntent, SELECT_FILE)
+            inputStream?.use { input ->
+                outputStream.use { output ->
+                    input.copyTo(output)
+                }
+            }
+
+            picturePath = file.absolutePath
+            decodeFile(picturePath)
+        } catch (e: Exception) {
+            Log.e("Exception", e.toString())
+            Toast.makeText(this, "Please try again", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun cameraIntent() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, REQUEST_CAMERA)
-    }
-
-    private fun onSelectFromGalleryResult(data: Intent?) {
-        try {
-            val selectedImage = data!!.data
-            val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-            val cursor = contentResolver.query(selectedImage!!,
-                filePathColumn, null, null, null)
-            cursor!!.moveToFirst()
-            val columnIndex = cursor.getColumnIndex(filePathColumn[0])
-            picturePath = cursor.getString(columnIndex)
-            cursor.close()
-            decodeFile(picturePath)
-        } catch (e: Exception) {
-            Log.e("Exception", e.toString())
-            Toast.makeText(this, "Please try again", Toast.LENGTH_LONG)
-                .show()
-        }
     }
 
     private fun decodeFile(filePath: String?) {
@@ -518,11 +530,13 @@ class NewProfile : BaseActivity(), View.OnClickListener {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         Log.e("Req Code", "" + requestCode)
         if (requestCode == REQUEST_CODE_PERMISSION) {
-            if (grantResults.size == 3 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
-                selectImage()
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (userChoosenTask == "Take Photo") {
+                    cameraIntent()
+                }
             } else {
                 Toast.makeText(this@NewProfile,
-                    "Please allow permissions to update userprofile pic",
+                    "Please allow camera permission to update userprofile pic",
                     Toast.LENGTH_SHORT).show()
             }
         }
@@ -531,8 +545,7 @@ class NewProfile : BaseActivity(), View.OnClickListener {
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_FILE) onSelectFromGalleryResult(data) else if (requestCode == REQUEST_CAMERA) onCaptureImageResult(
-                data)
+            if (requestCode == REQUEST_CAMERA) onCaptureImageResult(data)
         }
     }
 
@@ -573,7 +586,12 @@ class NewProfile : BaseActivity(), View.OnClickListener {
             updateProfileImage(bitmap)
         }
         builder.setNegativeButton("No") { dialogInterface, i -> dialogInterface.dismiss() }
-        builder.show()
+        val alertDialog = builder.create()
+        alertDialog.setOnShowListener {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(Color.BLACK)
+            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(Color.BLACK)
+        }
+        alertDialog.show()
     }
 
     private fun updateProfileImage(bitmap: Bitmap?) {

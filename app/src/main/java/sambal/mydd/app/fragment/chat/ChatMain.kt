@@ -28,9 +28,16 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
+import androidx.core.graphics.Insets
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsAnimationCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -59,9 +66,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import android.webkit.MimeTypeMap
 
 
 class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener {
@@ -81,14 +90,11 @@ class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener 
     var mPermission = if (Build.VERSION.SDK_INT >= 33) {
         arrayOf(
             Manifest.permission.CAMERA,
-            Manifest.permission.READ_MEDIA_IMAGES,
             Manifest.permission.ACCESS_FINE_LOCATION
         )
-
     } else {
         arrayOf(
             Manifest.permission.CAMERA,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.ACCESS_FINE_LOCATION
         )
@@ -109,6 +115,14 @@ class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener 
     var notificationStatus = "0"
     private var binding: ChatscreenBinding? = null
     private var permissionDialog: Dialog? = null
+    private val pickMediaLauncher =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            if (uri != null) {
+                handlePickedMedia(uri)
+            } else {
+                Log.d("ChatMain", "No media selected from picker")
+            }
+        }
 
 
     //position = bundle.getInt("position");
@@ -174,6 +188,42 @@ class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.chatscreen)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        ViewCompat.setWindowInsetsAnimationCallback(
+            binding!!.chatLayout,
+            object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
+                override fun onProgress(
+                    insets: WindowInsetsCompat,
+                    runningAnimations: MutableList<WindowInsetsAnimationCompat>
+                ): WindowInsetsCompat {
+                    val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+                    val sysInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+                    // Calculate translation only when keyboard is visible or animating
+                    if (imeInsets.bottom > 0) {
+                        // Keyboard is visible or animating in
+                        binding!!.chatLayout.translationY = -(imeInsets.bottom - sysInsets.bottom).toFloat()
+                    } else {
+                        // Keyboard is fully hidden - reset translation to maintain bottom margin
+                        binding!!.chatLayout.translationY = 0f
+                    }
+
+                    return insets
+                }
+
+                override fun onEnd(animation: WindowInsetsAnimationCompat) {
+                    // Ensure translation is reset when animation completes
+                    val currentInsets = ViewCompat.getRootWindowInsets(binding!!.chatLayout)
+                    val imeInsets = currentInsets?.getInsets(WindowInsetsCompat.Type.ime()) ?: Insets.NONE
+
+                    if (imeInsets.bottom == 0) {
+                        // Keyboard is fully closed, reset translation
+                        binding!!.chatLayout.translationY = 0f
+                    }
+                }
+            }
+        )
+
         try {
 
 
@@ -441,32 +491,63 @@ class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener 
         val builder = AlertDialog.Builder(this@ChatMain, R.style.MyDialogTheme)
         builder.setTitle("Add Photo!")
         builder.setItems(items) { dialog, item ->
-            val result = Utility.checkPermission(this@ChatMain)
-            if (items[item] == "Take Photo") {
-                userChoosenTask = "Take Photo"
-                if (result) try {
-                    cameraIntent()
-                } catch (e: Exception) {
-                    ErrorMessage.E("Exception$e")
+            when (items[item]) {
+                "Take Photo" -> {
+                    userChoosenTask = "Take Photo"
+                    try {
+                        cameraIntent()
+                    } catch (e: Exception) {
+                        ErrorMessage.E("Exception$e")
+                    }
                 }
-            } else if (items[item] == "Choose from Gallery") {
-                userChoosenTask = "Choose from Gallery"
-                if (result) galleryIntent()
-            } else if (items[item] == "Cancel") {
-                dialog.dismiss()
+                "Choose from Gallery" -> {
+                    userChoosenTask = "Choose from Gallery"
+                    launchPhotoPicker()
+                }
+                "Cancel" -> dialog.dismiss()
             }
         }
         builder.show()
     }
 
-    private fun galleryIntent() {
-        val galleryIntent = Intent(
-            Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        )
+    private fun launchPhotoPicker() {
+        try {
+            pickMediaLauncher.launch(
+                PickVisualMediaRequest.Builder()
+                    .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                    .build()
+            )
+        } catch (e: Exception) {
+            Log.e("ChatMain", "Unable to launch photo picker", e)
+            Toast.makeText(this, "Unable to open gallery", Toast.LENGTH_LONG).show()
+        }
+    }
 
-        // Start the Intent
-        startActivityForResult(galleryIntent, SELECT_FILE)
+    private fun handlePickedMedia(uri: Uri) {
+        try {
+            val localPath = copyUriToCache(uri)
+            picturePath = localPath
+            decodeFile(localPath)
+        } catch (e: Exception) {
+            Log.e("ChatMain", "Failed to handle picked media", e)
+            Toast.makeText(this, "Unable to process selected image", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @Throws(IOException::class)
+    private fun copyUriToCache(uri: Uri): String {
+        val mimeType = contentResolver.getType(uri)
+        val extension = MimeTypeMap.getSingleton()
+            .getExtensionFromMimeType(mimeType)
+            ?.takeIf { it.isNotBlank() } ?: "jpg"
+        val fileName = "picker_${System.currentTimeMillis()}.$extension"
+        val destination = File(cacheDir, fileName)
+        contentResolver.openInputStream(uri)?.use { input ->
+            FileOutputStream(destination).use { output ->
+                input.copyTo(output)
+            }
+        } ?: throw IOException("Unable to open selected image stream")
+        return destination.absolutePath
     }
 
     override fun onRefreshHistoryList(list: List<PNHistoryItemResult>) {
@@ -555,22 +636,11 @@ class ChatMain : AppCompatActivity(), ChatHistoryCallback, View.OnClickListener 
     }
 
     private fun onSelectFromGalleryResult(data: Intent?) {
-        try {
-            val selectedImage = data!!.data
-            val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-            val cursor = contentResolver.query(
-                selectedImage!!,
-                filePathColumn, null, null, null
-            )
-            cursor!!.moveToFirst()
-            val columnIndex = cursor.getColumnIndex(filePathColumn[0])
-            picturePath = cursor.getString(columnIndex)
-            cursor.close()
-            decodeFile(picturePath)
-        } catch (e: Exception) {
-            Log.e("Exception", e.toString())
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG)
-                .show()
+        val uri = data?.data
+        if (uri != null) {
+            handlePickedMedia(uri)
+        } else {
+            Toast.makeText(this, "No image selected", Toast.LENGTH_LONG).show()
         }
     }
 

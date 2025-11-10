@@ -20,7 +20,9 @@ import androidx.core.view.GravityCompat
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import kotlin.math.abs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,6 +65,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
     var dialogManager: DialogManager? = null
     var o: JSONObject? = null
     var referBusinessWebURL = ""
+    var cakeWebURL = ""
+    var koodaiWebURL = ""
+    var dineInWebURL = ""
+    var OrderOnlineWebURL = ""
     var permissionsManager: PermissionsManager? = null
     var packageManager: PackageManager? = null
     private var ddKitchenWebURL = ""
@@ -94,6 +100,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private var lastScrollPosition = -1
     private var hasTriggeredBottom = false
     private var hasTriggeredTop = true
+    private var isTopCardAnimationRunning = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -121,31 +128,80 @@ class HomeFragment : Fragment(), View.OnClickListener {
             .registerReceiver(onNotice1, IntentFilter("update_noti"))
 
         binding!!.nestedScolling.setOnScrollChangeListener { v, _, scrollY, _, oldScrollY ->
-            val isScrollingDown = scrollY > oldScrollY
-            val isScrollingUp = scrollY < oldScrollY
+            if (isTopCardAnimationRunning) {
+                return@setOnScrollChangeListener
+            }
 
-            if (isScrollingDown && isTopCardVisible) {
+            val delta = scrollY - oldScrollY
+            if (abs(delta) < 12) {
+                return@setOnScrollChangeListener
+            }
+
+            val nestedScrollView = v as? NestedScrollView
+            val isScrollingDown = delta > 0
+            val isScrollingUp = delta < 0
+            val atBottom = nestedScrollView?.canScrollVertically(1)?.not() ?: false
+            val atTop = nestedScrollView?.canScrollVertically(-1)?.not() ?: false
+
+            val topCard = binding!!.topCardLayout
+            val menuLayout = binding!!.menuLayout
+
+            if (isScrollingDown && isTopCardVisible && !atBottom) {
                 // Scroll down → hide topCard, show menu
-                binding!!.topCardLayout.animate()
-                    .translationY(-binding!!.topCardLayout.height.toFloat())
+                isTopCardAnimationRunning = true
+                menuLayout.animate().cancel()
+                topCard.animate().cancel()
+
+                menuLayout.visibility = View.VISIBLE
+                menuLayout.alpha = 0f
+                menuLayout.animate()
+                    .alpha(1f)
                     .setDuration(250)
+                    .setInterpolator(FastOutSlowInInterpolator())
+                    .start()
+
+                topCard.animate()
+                    .alpha(0f)
+                    .translationY(-topCard.height.toFloat())
+                    .setDuration(250)
+                    .setInterpolator(FastOutSlowInInterpolator())
                     .withEndAction {
-                        binding!!.topCardLayout.visibility = View.GONE
-                        binding!!.menuLayout.visibility = View.VISIBLE
+                        topCard.visibility = View.GONE
+                        topCard.alpha = 1f
+                        isTopCardAnimationRunning = false
                     }
                     .start()
 
                 isTopCardVisible = false
                 ErrorMessage.E("Hiding top card - scrolling down")
 
-            } else if (isScrollingUp && !isTopCardVisible) {
+            } else if (isScrollingUp && !isTopCardVisible && !atTop) {
                 // Scroll up → show topCard, hide menu
-                binding!!.topCardLayout.visibility = View.VISIBLE
-                binding!!.topCardLayout.animate()
+                isTopCardAnimationRunning = true
+                menuLayout.animate().cancel()
+                topCard.animate().cancel()
+
+                topCard.visibility = View.VISIBLE
+                topCard.alpha = 0f
+                topCard.translationY = -topCard.height.toFloat()
+
+                menuLayout.animate()
+                    .alpha(0f)
+                    .setDuration(200)
+                    .setInterpolator(FastOutSlowInInterpolator())
+                    .withEndAction {
+                        menuLayout.visibility = View.GONE
+                        menuLayout.alpha = 1f
+                    }
+                    .start()
+
+                topCard.animate()
+                    .alpha(1f)
                     .translationY(0f)
                     .setDuration(250)
+                    .setInterpolator(FastOutSlowInInterpolator())
                     .withEndAction {
-                        binding!!.menuLayout.visibility = View.GONE
+                        isTopCardAnimationRunning = false
                     }
                     .start()
 
@@ -197,6 +253,22 @@ class HomeFragment : Fragment(), View.OnClickListener {
                                         )
                                         referBusinessWebURL =
                                             o?.optString("referBusinessWebURL").toString()
+
+                                        cakeWebURL =
+                                            o?.optString("cakeWebURL").toString()
+                                        koodaiWebURL =
+                                            o?.optString("koodaiWebURL").toString()
+                                        OrderOnlineWebURL =
+                                            o?.optString("OrderOnlineWebURL").toString()
+                                        dineInWebURL =
+                                            o?.optString("dineInWebURL").toString()
+
+                                        binding?.ticketPointsValueTv?.text =
+                                            o?.optString("userAvailablePoints")
+
+                                        binding?.ticketVoucherValueTv?.text =
+                                            o?.optString("storeVouchersValue")
+
                                     } catch (e: Exception) {
                                     }
                                     // Log.e("Promo", o?.optString("promocodeStatus").toString())
@@ -504,6 +576,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
                                     o?.optString("googleAPIKey")
                                 )
                                 referBusinessWebURL = o?.optString("referBusinessWebURL").toString()
+
+                                cakeWebURL =
+                                    o?.optString("cakeWebURL").toString()
+                                koodaiWebURL =
+                                    o?.optString("koodaiWebURL").toString()
+                                OrderOnlineWebURL =
+                                    o?.optString("OrderOnlineWebURL").toString()
+                                dineInWebURL =
+                                    o?.optString("dineInWebURL").toString()
+                                binding?.ticketPointsValueTv?.text =
+                                    o?.optString("userAvailablePoints")
+
+                                binding?.ticketVoucherValueTv?.text =
+                                    o?.optString("storeVouchersValue")
                             } catch (e: Exception) {
                             }
                             Log.e("Promo", o?.optString("promocodeStatus").toString())
@@ -728,9 +814,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private fun initView(view: View) {
         iv = view.findViewById(R.id.iv)
         binding!!.llStorePoints.setOnClickListener(this)
+        binding!!.ourStoreMainLayout.setOnClickListener(this)
+        binding!!.userAvailablePointsLayout.setOnClickListener(this)
         binding!!.myWalletLayout.setOnClickListener(this)
         binding!!.availablePointsLayout.setOnClickListener(this)
-       // binding!!.llStoreVoucher.setOnClickListener(this)
+        // binding!!.llStoreVoucher.setOnClickListener(this)
         binding!!.orderOnlineLayout.setOnClickListener(this)
         binding!!.llDeals.setOnClickListener(this)
         binding!!.btnMoreDeals.setOnClickListener(this)
@@ -746,6 +834,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding!!.preOrderLayout.setOnClickListener(this)
         binding!!.llKoodai.setOnClickListener(this)
         binding!!.llCake.setOnClickListener(this)
+        binding!!.cakeLayout.setOnClickListener(this)
+        binding!!.koodaiLayout.setOnClickListener(this)
         Log.e(
             "key>>",
             "" + SharedPreferenceVariable.loadSavedPreferences(
@@ -842,12 +932,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         MessageConstant.MESSAGE_INTERNET_CONNECTION
                     )
                 }
+
             R.id.ll_koodai ->
 
                 if (AppUtil.isNetworkAvailable(context1)) {
                     startActivity(
                         Intent(activity, Webview::class.java)
-                            .putExtra("url", "https://koodai.co.uk/")
+                            .putExtra("url", koodaiWebURL)
                             .putExtra("type", "non_direct")
                             .putExtra("title", "Koodai")
                     )
@@ -857,14 +948,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         MessageConstant.MESSAGE_INTERNET_CONNECTION
                     )
                 }
+
             R.id.ll_cake ->
 
                 if (AppUtil.isNetworkAvailable(context1)) {
                     startActivity(
                         Intent(activity, Webview::class.java)
-                            .putExtra("url", "https://www.instagram.com/rubys_cakes_and_bakes?igsh=MTE3aGY0cDI1bGZ3bw==")
+                            .putExtra("url", cakeWebURL)
                             .putExtra("type", "non_direct")
-                            .putExtra("title", "Cakes")
+                            .putExtra("title", resources.getString(R.string.cakes))
                     )
                 } else {
                     AppUtil.showMsgAlert(
@@ -872,14 +964,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         MessageConstant.MESSAGE_INTERNET_CONNECTION
                     )
                 }
+
             R.id.pre_order_layout ->
 
                 if (AppUtil.isNetworkAvailable(context1)) {
                     startActivity(
                         Intent(activity, Webview::class.java)
-                            .putExtra("url", "https://sambalexpress.co.uk/stores/")
+                            .putExtra("url", dineInWebURL)
                             .putExtra("type", "non_direct")
-                            .putExtra("title", "Pre Order")
+                            .putExtra("title", resources.getString(R.string.sambal_kitchen))
                     )
                 } else {
                     AppUtil.showMsgAlert(
@@ -921,7 +1014,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 } catch (e: Exception) {
                 }
 
-            R.id.my_wallet_layout ->
+            R.id.user_available_points_layout ->
                 try {
 
                     /* if (AppUtil.isNetworkAvailable(context1)) {*/
@@ -945,6 +1038,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     }*/
                 } catch (e: Exception) {
                 }
+
+            R.id.my_wallet_layout ->
+                try {
+
+                    if (exclusive_dialog != null) {
+                        exclusive_dialog!!.dismiss()
+                    }
+                    startActivity(
+                        Intent(activity, ActivityMyRewards::class.java)
+                            .putExtra("name", o!!.optString("storeVouchers"))
+                    )
+                } catch (e: Exception) {
+                }
+
             R.id.available_points_layout ->
                 try {
 
@@ -983,7 +1090,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         Intent(activity, ActivityMyRewards::class.java)
                             .putExtra("name", o!!.optString("storeVouchers"))
                     )
-                } catch (e: Exception) { }
+                } catch (e: Exception) {
+                }
                 /* } else {
                      AppUtil.showMsgAlert(
                          binding!!.tvNotiCount,
@@ -1015,72 +1123,49 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.my_deal_layout -> try {
-                  binding!!.ivMenu.visibility = View.GONE
-                    try {
-    //                        exclusive_dialog!!.dismiss()
-
-                        if (exclusive_dialog != null) {
-                            exclusive_dialog!!.dismiss()
-                        }
-                        startActivity(
-                            Intent(activity, ActivityMyRewards::class.java)
-                                .putExtra("name", o!!.optString("storeVouchers"))
-                        )
-                    } catch (e: Exception) { }
+                if (exclusive_dialog != null) {
+                    exclusive_dialog!!.dismiss()
+                }
+                if (ourProfileAgentId != null && ourProfileAgentId != "") {
+                    val intent =
+                        Intent(activity, New_AgentDetails::class.java)
+                    intent.putExtra(IntentConstant.INTENT_KEY_AGENT_ID, ourProfileAgentId)
+                    startActivity(intent)
+                } else {
+                    startActivity(Intent(activity, NearMeHomeFragment::class.java))
+                }
 
             } catch (e: Exception) {
             }
 
             R.id.llNearMe -> try {
-                /* if (AppUtil.isNetworkAvailable(context1)) {*/
-
-
-//                    exclusive_dialog!!.dismiss()
-
-                if (exclusive_dialog != null) {
-                    exclusive_dialog!!.dismiss()
-                }
-                if (ourProfileAgentId != null && ourProfileAgentId != "") {
-                    val intent =
-                        Intent(activity, New_AgentDetails::class.java)
-                    intent.putExtra(IntentConstant.INTENT_KEY_AGENT_ID, ourProfileAgentId)
-                    startActivity(intent)
-                } else {
-                    startActivity(Intent(activity, NearMeHomeFragment::class.java))
-                }
-                /*} else {
-                    AppUtil.showMsgAlert(
-                        binding!!.tvNotiCount,
-                        MessageConstant.MESSAGE_INTERNET_CONNECTION
-                    )
-                }*/
+                ErrorMessage.E("llNearMe>>>>" + OrderOnlineWebURL.toString())
+                context1!!.startActivity(
+                    Intent(activity, Webview::class.java)
+                        .putExtra("url", OrderOnlineWebURL)
+                        .putExtra(
+                            "title",
+                            resources.getString(R.string.sambal_express_online_order)
+                        )
+                        .putExtra("type", "non_direct")
+                )
             } catch (e: Exception) {
+                ErrorMessage.E("Exception>>>>" + e.toString())
             }
 
             R.id.our_store_layout -> try {
-                /* if (AppUtil.isNetworkAvailable(context1)) {*/
-
-
-//                    exclusive_dialog!!.dismiss()
-
-                if (exclusive_dialog != null) {
-                    exclusive_dialog!!.dismiss()
-                }
-                if (ourProfileAgentId != null && ourProfileAgentId != "") {
-                    val intent =
-                        Intent(activity, New_AgentDetails::class.java)
-                    intent.putExtra(IntentConstant.INTENT_KEY_AGENT_ID, ourProfileAgentId)
-                    startActivity(intent)
-                } else {
-                    startActivity(Intent(activity, NearMeHomeFragment::class.java))
-                }
-                /*} else {
-                    AppUtil.showMsgAlert(
-                        binding!!.tvNotiCount,
-                        MessageConstant.MESSAGE_INTERNET_CONNECTION
-                    )
-                }*/
+                ErrorMessage.E("llNearMe>>>>" + OrderOnlineWebURL.toString())
+                context1!!.startActivity(
+                    Intent(activity, Webview::class.java)
+                        .putExtra("url", OrderOnlineWebURL)
+                        .putExtra(
+                            "title",
+                            resources.getString(R.string.sambal_express_online_order)
+                        )
+                        .putExtra("type", "non_direct")
+                )
             } catch (e: Exception) {
+                ErrorMessage.E("Exception>>>>" + e.toString())
             }
 
             /*R.id.llStoreVoucher -> try {
@@ -1133,8 +1218,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
                     context1!!.startActivity(
                         Intent(activity, Webview::class.java)
-                            .putExtra("url", ddKitchenWebURL)
-                            .putExtra("title", "DD Kitchen")
+                            .putExtra("url", dineInWebURL)
+                            .putExtra("title", resources.getString(R.string.sambal_kitchen))
                             .putExtra("type", "non_direct")
                     )
                 } else {
@@ -1142,6 +1227,65 @@ class HomeFragment : Fragment(), View.OnClickListener {
                         binding!!.tvNotiCount,
                         MessageConstant.MESSAGE_INTERNET_CONNECTION
                     )
+                }
+            } catch (e: Exception) {
+            }
+
+            R.id.cake_layout -> try {
+                if (AppUtil.isNetworkAvailable(context1)) {
+
+                    if (exclusive_dialog != null) {
+                        exclusive_dialog!!.dismiss()
+                    }
+
+                    context1!!.startActivity(
+                        Intent(activity, Webview::class.java)
+                            .putExtra("url", cakeWebURL)
+                            .putExtra("title", resources.getString(R.string.cakes))
+                            .putExtra("type", "non_direct")
+                    )
+                } else {
+                    AppUtil.showMsgAlert(
+                        binding!!.tvNotiCount,
+                        MessageConstant.MESSAGE_INTERNET_CONNECTION
+                    )
+                }
+            } catch (e: Exception) {
+            }
+
+            R.id.koodai_layout -> try {
+                if (AppUtil.isNetworkAvailable(context1)) {
+
+                    if (exclusive_dialog != null) {
+                        exclusive_dialog!!.dismiss()
+                    }
+
+                    context1!!.startActivity(
+                        Intent(activity, Webview::class.java)
+                            .putExtra("url", koodaiWebURL)
+                            .putExtra("title", resources.getString(R.string.online_groceries))
+                            .putExtra("type", "non_direct")
+                    )
+                } else {
+                    AppUtil.showMsgAlert(
+                        binding!!.tvNotiCount,
+                        MessageConstant.MESSAGE_INTERNET_CONNECTION
+                    )
+                }
+            } catch (e: Exception) {
+            }
+
+            R.id.our_store_main_layout -> try {
+                if (exclusive_dialog != null) {
+                    exclusive_dialog!!.dismiss()
+                }
+                if (ourProfileAgentId != null && ourProfileAgentId != "") {
+                    val intent =
+                        Intent(activity, New_AgentDetails::class.java)
+                    intent.putExtra(IntentConstant.INTENT_KEY_AGENT_ID, ourProfileAgentId)
+                    startActivity(intent)
+                } else {
+                    startActivity(Intent(activity, NearMeHomeFragment::class.java))
                 }
             } catch (e: Exception) {
             }

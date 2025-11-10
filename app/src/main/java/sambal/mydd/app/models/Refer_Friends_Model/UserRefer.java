@@ -59,6 +59,9 @@ public class UserRefer implements Serializable {
     @SerializedName("referralImage")
     @Expose
     private String referralImage;
+    @SerializedName("referralShareURL")
+    @Expose
+    private String referralShareURL;
     @SerializedName("visitList")
     @Expose
     private List<Visit> visitList = null;
@@ -80,6 +83,14 @@ public class UserRefer implements Serializable {
     @SerializedName("promocode")
     @Expose
     private List<Promocode> promocode = null;
+
+    public String getReferralShareURL() {
+        return referralShareURL;
+    }
+
+    public void setReferralShareURL(String referralShareURL) {
+        this.referralShareURL = referralShareURL;
+    }
 
     public List<Promocode> getPromocode() {
         return promocode;

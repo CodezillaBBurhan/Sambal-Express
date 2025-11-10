@@ -1,24 +1,13 @@
 package sambal.mydd.app.local_image_cache;
 
-import static android.os.Build.VERSION.*;
-
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
-import android.os.Build.VERSION;
 import android.util.Log;
 import android.widget.ImageView;
 
-import androidx.core.app.ActivityCompat;
-
 import com.bumptech.glide.Glide;
-import sambal.mydd.app.R;
-import sambal.mydd.app.utils.AppUtil;
-import sambal.mydd.app.utils.ErrorMessage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,15 +16,16 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.NetPermission;
 import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import android.Manifest;
-import android.os.Build;
+
+import sambal.mydd.app.R;
+import sambal.mydd.app.utils.AppUtil;
+import sambal.mydd.app.utils.ErrorMessage;
 public class ImageLoader {
     MemoryCache memoryCache = new MemoryCache();
     FileCache fileCache;
@@ -184,127 +174,22 @@ public class ImageLoader {
 
         @Override
         public void run() {
-
-            int REQUEST_CODE_PERMISSION = 2;
-
-
-            String[] mPermission;
-if (Build.VERSION.SDK_INT >= 33) {
-        mPermission = new String[]{
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_MEDIA_IMAGES,
-                Manifest.permission.ACCESS_FINE_LOCATION
-        };
-    }
-
-            else {
-        mPermission = new String[]{
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_FINE_LOCATION
-        };
-    }
-
             if (imageViewReused(photoToLoad))
                 return;
 
             try {
+                Bitmap bmp = getBitmap(photoToLoad.url);
 
-                if (SDK_INT > Build.VERSION_CODES.S) {
+                memoryCache.put(photoToLoad.url, bmp);
+                if (imageViewReused(photoToLoad))
+                    return;
+                BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
+                Activity a = (Activity) photoToLoad.imageView.getContext();
+                a.runOnUiThread(bd);
 
-                    ErrorMessage.E("mpermission" + mPermission.length);
-
-                    if ((ActivityCompat.checkSelfPermission(context, mPermission[0])
-                            != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
-                            context,
-                            mPermission[1])
-                            != PackageManager.PERMISSION_GRANTED)
-                    ) {
-//                        ActivityCompat.requestPermissions(
-//                                context,
-//                                mPermission,
-//                                REQUEST_CODE_PERMISSION
-//                        );
-
-
-                    } else {
-
-
-                        try {
-                            Bitmap bmp = getBitmap(photoToLoad.url);
-
-                            memoryCache.put(photoToLoad.url, bmp);
-                            if (imageViewReused(photoToLoad))
-                                return;
-                            BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
-                            Activity a = (Activity) photoToLoad.imageView.getContext();
-                            a.runOnUiThread(bd);
-
-                        } catch (Exception e) {
-                            ErrorMessage.E("Exception>> " + e);
-                        }
-
-                    }
-                } else {
-                    if ((ActivityCompat.checkSelfPermission(context, mPermission[0])
-                            != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
-                            context,
-                            mPermission[1]
-                    )
-                            != PackageManager.PERMISSION_GRANTED) || (ActivityCompat.checkSelfPermission(
-                            context,
-                            mPermission[2]
-                    )
-                            != PackageManager.PERMISSION_GRANTED)
-                    ) {
-//                        ActivityCompat.requestPermissions(
-//                                ,
-//                                mPermission,
-//                                REQUEST_CODE_PERMISSION
-//                        );
-
-
-                    } else {
-
-                        try {
-                            Bitmap bmp = getBitmap(photoToLoad.url);
-
-                            memoryCache.put(photoToLoad.url, bmp);
-                            if (imageViewReused(photoToLoad))
-                                return;
-                            BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
-                            Activity a = (Activity) photoToLoad.imageView.getContext();
-                            a.runOnUiThread(bd);
-
-                        } catch (Exception e) {
-                            ErrorMessage.E("Exception>> " + e);
-                        }
-
-
-                    }
-
-                }
-            } catch (Exception e){
-                e.printStackTrace();
+            } catch (Exception e) {
+                ErrorMessage.E("Exception>> " + e);
             }
-
-
-
-
-//            try {
-//                Bitmap bmp = getBitmap(photoToLoad.url);
-//
-//                memoryCache.put(photoToLoad.url, bmp);
-//                if (imageViewReused(photoToLoad))
-//                    return;
-//                BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
-//                Activity a = (Activity) photoToLoad.imageView.getContext();
-//                a.runOnUiThread(bd);
-//
-//            } catch (Exception e) {
-//                ErrorMessage.E("Exception>> " + e);
-//            }
         }
     }
 

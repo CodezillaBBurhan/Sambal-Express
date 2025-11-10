@@ -118,6 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding_10dp"
+        android:id="@+id/chat_layout"
         android:background="@drawable/llwhite35"
         android:orientation="horizontal">
 

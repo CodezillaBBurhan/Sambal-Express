@@ -30,6 +30,7 @@ import org.json.JSONException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import sambal.mydd.app.R
 import java.lang.Exception
 import java.util.ArrayList
 
@@ -69,8 +70,9 @@ class VisitDealsFragment : Fragment() {
         isdealFirst = true
         binding!!.mainTitleTv.text = """You have not earned any 
  visit deals yet"""
-        binding!!.subTitleTv.text = """Keep visiting DD Partners and collect 
- visits to earn free deals"""
+        val appName = getString(R.string.app_name)
+        binding!!.subTitleTv.text = """Keep visiting $appName Partners and collect 
+visits to earn free deals"""
         binding!!.llNoData.visibility = View.GONE
         binding!!.rvVisitdeals.visibility = View.VISIBLE
         getDeals(true)
@@ -194,9 +196,9 @@ class VisitDealsFragment : Fragment() {
                                         } else {
                                             binding!!.mainTitleTv.text = """You have not earned any 
  visit deals yet"""
-                                            binding!!.subTitleTv.text =
-                                                """Keep visiting DD Partners and collect 
- visits to earn free deals"""
+                                            val appName = getString(R.string.app_name)
+                                            binding!!.subTitleTv.text = """Keep visiting $appName Partners and collect 
+visits to earn free deals"""
                                             binding!!.llNoData.visibility = View.VISIBLE
                                             binding!!.rvVisitdeals.visibility = View.GONE
                                         }

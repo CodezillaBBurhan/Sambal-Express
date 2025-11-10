@@ -101,6 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:gravity="center"
+                    android:layout_marginVertical="@dimen/_5sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -240,6 +241,91 @@
                             android:src="@drawable/coffee_hand" />
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:id="@+id/user_available_points_layout"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:gravity="right"
+                        android:visibility="visible">
+
+                        <!-- Ticket/Coupon Design -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_ticket_coupon_final"
+                            android:elevation="4dp"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal"
+                            android:padding="3dp">
+
+                            <!-- Left Section: Points -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <TextView
+                                    android:id="@+id/ticket_points_value_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/volte_bold"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_13sdp"
+                                    android:singleLine="true"
+                                    tools:text="5500" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/volte_medium"
+                                    android:text="Points"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                            <!-- Dashed Divider View -->
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/dotted_line_vertical" />
+
+                            <!-- Right Section: Voucher -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <TextView
+                                    android:id="@+id/ticket_voucher_value_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/volte_bold"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_13sdp"
+                                    tools:text="£5" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/volte_medium"
+                                    android:text="Voucher"
+                                    android:textColor="@color/black"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
                 </LinearLayout>
 
                 <HorizontalScrollView
@@ -252,7 +338,6 @@
                     android:visibility="gone">
 
                     <LinearLayout
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/white"
@@ -280,7 +365,7 @@
                                 android:layout_marginTop="8dp"
                                 android:fontFamily="@font/volte_semibold"
                                 android:gravity="center"
-                                android:text="My Wallet"
+                                android:text="My Rewards"
                                 android:textColor="@android:color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -291,30 +376,7 @@
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@drawable/our_rewards" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/volte_semibold"
-                                android:gravity="center"
-                                android:text="My Rewards"
-                                android:textColor="@android:color/black"
-                                android:textSize="14sp" />
-                        </LinearLayout>
-
-                        <!-- Our Stores -->
-                        <LinearLayout
-                            android:id="@+id/our_store_layout"
-                            android:layout_width="@dimen/_80sdp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
@@ -333,18 +395,19 @@
                                 android:textSize="14sp" />
                         </LinearLayout>
 
-                        <!-- Order Online -->
+                        <!-- Our Stores -->
                         <LinearLayout
-                            android:id="@+id/order_online_layout"
+                            android:id="@+id/our_store_layout"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/pre_order" />
+                                android:src="@drawable/sambal_express_online_order" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -352,9 +415,36 @@
                                 android:layout_marginTop="8dp"
                                 android:fontFamily="@font/volte_semibold"
                                 android:gravity="center"
-                                android:text="Pre Order"
+                                android:text="@string/sambal_express_online_order"
                                 android:textColor="@android:color/black"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:maxLines="2"/>
+                        </LinearLayout>
+
+                        <!-- Order Online -->
+                        <LinearLayout
+                            android:id="@+id/order_online_layout"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/sambal_kitchen_dinein" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/volte_semibold"
+                                android:gravity="center"
+                                android:text="@string/sambal_kitchen"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:maxLines="2"/>
                         </LinearLayout>
                         <!-- Order Online -->
                         <LinearLayout
@@ -362,12 +452,13 @@
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/cake" />
+                                android:src="@drawable/ruby" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -375,7 +466,7 @@
                                 android:layout_marginTop="8dp"
                                 android:fontFamily="@font/volte_semibold"
                                 android:gravity="center"
-                                android:text="Cakes"
+                                android:text="@string/cakes"
                                 android:textColor="@android:color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -385,6 +476,7 @@
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
@@ -398,7 +490,7 @@
                                 android:layout_marginTop="8dp"
                                 android:fontFamily="@font/volte_semibold"
                                 android:gravity="center"
-                                android:text="Koodai"
+                                android:text="@string/online_groceries"
                                 android:textColor="@android:color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -450,6 +542,7 @@
                             android:background="@drawable/corners"
                             android:elevation="4dp"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -541,7 +634,7 @@
                                         android:layout_height="@dimen/_50sdp"
                                         android:layout_centerInParent="true"
                                         android:layout_gravity="center"
-                                        app:srcCompat="@drawable/our_rewards" />
+                                        app:srcCompat="@drawable/ic_store_points" />
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -574,6 +667,78 @@
                                     android:fontFamily="@font/volte_semibold"
                                     android:gravity="center|center_vertical"
                                     android:text="My Rewards"
+                                    android:textAllCaps="false"
+                                    android:textColor="#101010"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/our_store_main_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_7sdp"
+                            android:layout_marginRight="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/corners"
+                            android:elevation="4dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="3"
+                                android:gravity="center">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:src="@drawable/card_shadaw_bg" />
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_50sdp"
+                                        android:layout_height="@dimen/_50sdp"
+                                        android:layout_centerInParent="true"
+                                        android:layout_gravity="center"
+                                        app:srcCompat="@drawable/ic_near_me_dd" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:background="@drawable/llredcircele"
+                                    android:gravity="center|center_vertical"
+                                    android:text="15"
+                                    android:textColor="@color/white"
+                                    android:textSize="8sp"
+                                    android:visibility="gone" />
+
+
+                                <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|center_vertical"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/volte_semibold"
+                                    android:gravity="center|center_vertical"
+                                    android:text="Our Stores"
                                     android:textAllCaps="false"
                                     android:textColor="#101010"
                                     android:textSize="16sp" />
@@ -628,7 +793,7 @@
                                         android:layout_centerInParent="true"
                                         android:layout_gravity="center"
                                         android:adjustViewBounds="true"
-                                        app:srcCompat="@drawable/ic_near_me_dd" />
+                                        app:srcCompat="@drawable/sambal_express_online_order" />
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -646,10 +811,10 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="@font/volte_semibold"
                                     android:gravity="center"
-                                    android:text="Our Stores"
+                                    android:text="@string/sambal_express_online_order"
                                     android:textAllCaps="false"
                                     android:textColor="#101010"
-                                    android:textSize="16sp" />
+                                    android:textSize="14sp" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -693,7 +858,7 @@
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/_5sdp"
                                         android:scaleType="fitXY"
-                                        app:srcCompat="@drawable/pre_order" />
+                                        app:srcCompat="@drawable/sambal_kitchen_dinein" />
                                 </RelativeLayout>
 
                             </LinearLayout>
@@ -750,10 +915,10 @@
                                     android:layout_gravity="top|center_vertical"
                                     android:fontFamily="@font/volte_semibold"
                                     android:gravity="center|center_vertical"
-                                    android:text="Pre Order"
+                                    android:text="@string/sambal_kitchen_"
                                     android:textAllCaps="false"
                                     android:textColor="#101010"
-                                    android:textSize="16sp" />
+                                    android:textSize="14sp" />
 
                                 <TextView
                                     android:id="@+id/voucher_points_tv"
@@ -816,12 +981,12 @@
                                         android:src="@drawable/card_shadaw_bg" />
 
                                     <ImageView
-                                        android:layout_width="@dimen/_50sdp"
+                                        android:layout_width="@dimen/_100sdp"
                                         android:layout_height="@dimen/_50sdp"
                                         android:layout_centerInParent="true"
                                         android:layout_gravity="center"
                                         android:adjustViewBounds="true"
-                                        app:srcCompat="@drawable/cake" />
+                                        app:srcCompat="@drawable/ruby" />
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -838,7 +1003,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="@font/volte_semibold"
                                     android:gravity="center"
-                                    android:text="Cakes"
+                                    android:text="Cakes &amp; Bakes"
                                     android:textAllCaps="false"
                                     android:textColor="#101010"
                                     android:textSize="16sp" />
@@ -877,7 +1042,7 @@
                                         android:src="@drawable/card_shadaw_bg" />
 
                                     <ImageView
-                                        android:layout_width="@dimen/_50sdp"
+                                        android:layout_width="@dimen/_80sdp"
                                         android:layout_height="@dimen/_50sdp"
                                         android:layout_centerInParent="true"
                                         android:layout_gravity="center"
@@ -899,7 +1064,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="@font/volte_semibold"
                                     android:gravity="center"
-                                    android:text="Koodai"
+                                    android:text="Online Groceries"
                                     android:textAllCaps="false"
                                     android:textColor="#101010"
                                     android:textSize="16sp" />
@@ -1135,9 +1300,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:fontFamily="@font/volte_medium"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/volte_semibold"
                     android:text="My Deals"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView

@@ -201,7 +201,7 @@
                             android:fontFamily="@font/volte_medium"
                             android:gravity="center"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text13"
+                            android:textSize="@dimen/_15sdp"
                             tools:text="10000000 points = " />
 
 
@@ -213,7 +213,7 @@
                             android:fontFamily="@font/volte_bold"
                             android:gravity="center"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/text13"
+                            android:textSize="@dimen/_15sdp"
                             android:textStyle="bold"
                             tools:text="$100" />
 

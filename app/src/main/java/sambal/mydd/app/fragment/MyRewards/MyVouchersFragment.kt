@@ -93,7 +93,8 @@ class MyVouchersFragment : Fragment(), ChatHistoryCallback {
         }
         reward_binding!!.mainTitleTv.text = """You have not earned any 
  vouchers yet"""
-        reward_binding!!.subTitleTv.text = """Keep visiting DD Partners and claim 
+        val appName = getString(R.string.app_name)
+        reward_binding!!.subTitleTv.text = """Keep visiting $appName Partners and claim 
  points to earn vouchers"""
         getAllDetails(true)
         reward_binding!!.rvDeals.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -453,8 +454,9 @@ class MyVouchersFragment : Fragment(), ChatHistoryCallback {
                                                     reward_binding!!.mainTitleTv.text =
                                                         """You have not earned any 
  vouchers yet"""
+                                                    val appName = getString(R.string.app_name)
                                                     reward_binding!!.subTitleTv.text =
-                                                        """Keep visiting DD Partners and claim 
+                                                        """Keep visiting $appName Partners and claim 
  points to earn vouchers"""
                                                     reward_binding!!.llNoData.visibility =
                                                         View.VISIBLE

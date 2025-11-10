@@ -1,26 +1,51 @@
 {
   "project_info": {
-    "project_number": "336532266210",
-    "project_id": "balt-bf65f",
-    "storage_bucket": "balt-bf65f.firebasestorage.app"
+    "project_number": "23817734571",
+    "project_id": "sambal-rewards-app-b045c",
+    "storage_bucket": "sambal-rewards-app-b045c.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:336532266210:android:c670c85dde4ae0ee6012bb",
+        "mobilesdk_app_id": "1:23817734571:android:60d849df2e54df7ca22aee",
         "android_client_info": {
           "package_name": "sambal.mydd.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "23817734571-vlahkihj0ic8bde2dc6kfu0rjufhjfdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sambal.mydd.app",
+            "certificate_hash": "c8170d083e607eaa00a671cf6cbe030d1f455b3f"
+          }
+        },
+        {
+          "client_id": "23817734571-uer790vpu1pnn29nikbav63s10j076k9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0Duld54_8MtUjYelrqbNjcBk3j4ZfQ_4"
+          "current_key": "AIzaSyA8r8W3as_3XYYZXSWCV8-IDR9aLXIyl70"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23817734571-uer790vpu1pnn29nikbav63s10j076k9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "23817734571-fqem9m67j69807ujkp2jbvdhldg6oj46.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.myddpoints.sambal"
+              }
+            }
+          ]
         }
       }
     }

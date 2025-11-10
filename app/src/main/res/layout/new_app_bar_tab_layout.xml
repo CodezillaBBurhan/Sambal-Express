@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:visibility="visible"
+    android:background="#F5F9FE"
     app:elevation="0dp">
 
     <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
@@ -15,7 +16,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="#F5F9FE"
         android:elevation="0dp"
         android:visibility="visible"
         app:contentInsetStart="0dp"
@@ -24,13 +25,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#F5F9FE"
             android:gravity="center"
             android:orientation="vertical">
 
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#F5F9FE">
 
                 <ImageView
                     android:id="@+id/ivHumburger"

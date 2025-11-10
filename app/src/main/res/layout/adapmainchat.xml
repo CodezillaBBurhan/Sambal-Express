@@ -52,7 +52,7 @@
                         android:layout_gravity="left|center"
                         android:gravity="left|center"
                         android:fontFamily="@font/volte_semibold"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:autoLink="web"
                         android:linksClickable="true"
@@ -150,7 +150,7 @@
                     android:layout_gravity="left|center"
                     android:gravity="left|center"
                     android:fontFamily="@font/volte_semibold"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
 
                     tools:text="Sambhal Express" />

@@ -64,7 +64,7 @@
                     android:layout_marginTop="@dimen/padding_3dp"
                     android:fontFamily="@font/volte_medium"
                     android:textColor="#acb1b3"
-                    android:textSize="@dimen/text12_5"
+                    android:textSize="@dimen/_10sdp"
                     tools:text="April 10, 2019 10:00 PM" />
 
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/padding_10dp"
             android:fontFamily="@font/volte_semibold"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/_14sdp"
             tools:text="10" />
 

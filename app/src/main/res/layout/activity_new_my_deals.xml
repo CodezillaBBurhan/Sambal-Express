@@ -68,6 +68,7 @@
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 android:background="@drawable/background_selected_white"
                 android:src="@drawable/ic_categories_deals"
                 android:id="@+id/all_category_img" />
@@ -80,8 +81,6 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:hint="Search here"
                 android:padding="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_5sdp"
                 style="@style/InvisibleFocusHolder"
                 android:id="@+id/search_etv"
                 android:fontFamily="@font/volte_semibold" />
@@ -117,7 +116,7 @@
                         android:fontFamily="@font/volte_medium"
                         android:singleLine="true"
                         android:text="Location"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp" />
                     <!-- android:drawableRight="@drawable/ic_arrow_down"
                                 android:drawablePadding="@dimen/_5sdp"-->
@@ -127,7 +126,6 @@
                         android:layout_gravity="center"
                         android:layout_marginRight="@dimen/_8sdp"
                         android:src="@drawable/downarrow"
-                        app:tint="@color/colorPrimary"
                         android:id="@+id/down_arrow_img" />
 
                 </LinearLayout>

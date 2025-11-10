@@ -5,12 +5,11 @@
     android:layout_height="match_parent"
     android:id="@+id/iv_splash_image"
     android:fitsSystemWindows="true"
-    android:background="@drawable/splash_screen">
+    android:background="@drawable/splash_screen"/>
 
 
 
 
 
 
-</RelativeLayout>
 </layout>

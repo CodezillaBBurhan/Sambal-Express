@@ -92,6 +92,7 @@ class VerifyOTPForLocalSmsActivity : AppCompatActivity(), View.OnClickListener,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_verify_otpfor_local_sms)
         context = this@VerifyOTPForLocalSmsActivity
+        setupKeyboardAndScrollHandling()
         startSmsListener()
         val extra = intent.extras
         if (extra != null) {
@@ -126,6 +127,49 @@ class VerifyOTPForLocalSmsActivity : AppCompatActivity(), View.OnClickListener,
         otpValidateTimer()
 
     }
+    private fun setupKeyboardAndScrollHandling() {
+        // Handle focus changes on OTP field
+        binding!!.exOTP.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                scrollToOTPField()
+            }
+        }
+
+        // Handle clicks on OTP field
+        binding!!.exOTP.setOnClickListener {
+            scrollToOTPField()
+        }
+
+        // Monitor keyboard visibility and scroll when keyboard appears
+        binding!!.root.viewTreeObserver.addOnGlobalLayoutListener {
+            val heightDiff = binding!!.root.rootView.height - binding!!.root.height
+            if (heightDiff > 200) { // If more than 200 pixels, its probably keyboard
+                if (binding!!.exOTP.hasFocus()) {
+                    scrollToOTPField()
+                }
+            }
+        }
+    }
+
+    private fun scrollToOTPField() {
+        binding!!.scrollView.postDelayed({
+            // Get OTP field location
+            val location = IntArray(2)
+            binding!!.exOTP.getLocationOnScreen(location)
+            val otpY = location[1]
+
+            // Get scroll view location
+            binding!!.scrollView.getLocationOnScreen(location)
+            val scrollViewY = location[1]
+
+            // Calculate the scroll amount needed
+            val scrollTo = (otpY - scrollViewY - 100).coerceAtLeast(0)
+
+            // Scroll to position
+            binding!!.scrollView.smoothScrollTo(0, scrollTo)
+        }, 100)
+    }
+
 
     private fun startSmsListener() {
         try {

@@ -728,12 +728,12 @@ class ChatLocationFavourite : Fragment(), View.OnClickListener {
             isFirst = true
             getFollowingAgentList(true)
         }
-        if (isVisible) {
+      /*  if (isVisible) {
             try {
                 StatusBarcolor.setStatusbarColor(activity!!, "")
             } catch (e: Exception) {
             }
-        }
+        }*/
     }
 
     override fun onPause() {

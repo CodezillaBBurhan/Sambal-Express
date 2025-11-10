@@ -27,6 +27,8 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import sambal.mydd.app.fragment.NearMeHomeFragment.Companion.adapter
+import sambal.mydd.app.utils.StatusBarcolor
 import java.io.IOException
 import java.lang.Exception
 import java.util.ArrayList
@@ -328,5 +330,9 @@ class AgentAllComments : AppCompatActivity() {
     companion object {
         @JvmField
         var isDelete = false
+    }
+    public override fun onResume() {
+        super.onResume()
+        StatusBarcolor.setStatusbarColor(this, "")
     }
 }

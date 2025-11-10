@@ -313,6 +313,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/sign_up_continue"
                                 android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -322,7 +323,6 @@
                                 android:layout_marginTop="@dimen/padding_20dp">
 
                                 <TextView
-                                    android:id="@+id/sign_up_continue"
                                     android:layout_width="wrap_content"
                                     android:layout_height="@dimen/_40sdp"
                                     android:fontFamily="@font/volte_medium"

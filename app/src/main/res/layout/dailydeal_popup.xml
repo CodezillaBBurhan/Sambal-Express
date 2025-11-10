@@ -331,7 +331,7 @@
                         android:fontFamily="@font/volte_semibold"
                         android:gravity="start"
                         android:maxLines="1"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
                         tools:text="AVS Superstore" />
 

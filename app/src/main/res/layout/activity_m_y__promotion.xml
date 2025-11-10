@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/_10sdp"
-        app:srcCompat="@drawable/ic_notification_purple" />
+        app:srcCompat="@drawable/notification_bell_svgrepo_com" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
         android:layout_below="@+id/tool_barLayout"
         android:background="@color/yellow"
         android:padding="@dimen/_10sdp"
+        android:visibility="gone"
         android:id="@+id/search_bar_layout">
 
         <ImageView
@@ -79,7 +80,7 @@
                 android:fontFamily="@font/volte_medium"
                 android:singleLine="true"
                 android:text="Location"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
             <!-- android:drawableRight="@drawable/ic_arrow_down"
                             android:drawablePadding="@dimen/_5sdp"-->
@@ -89,7 +90,6 @@
                 android:layout_gravity="center"
                 android:layout_marginRight="@dimen/_8sdp"
                 android:src="@drawable/downarrow"
-                app:tint="@color/colorPrimary"
                 android:id="@+id/down_arrow_img" />
 
         </LinearLayout>

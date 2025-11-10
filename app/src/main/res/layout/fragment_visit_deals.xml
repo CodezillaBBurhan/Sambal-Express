@@ -48,7 +48,7 @@
             android:layout_marginTop="@dimen/padding_10dp"
             android:fontFamily="@font/volte_medium"
             android:gravity="center"
-            android:text="Keep visiting DD Partners and claim \n points to earn vouchers"
+            android:text="Keep visiting Sambal Express Partners and claim \n points to earn vouchers"
             android:textColor="@color/light_grey_for_text"
             android:textSize="13sp"
             android:id="@+id/sub_title_tv" />

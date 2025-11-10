@@ -35,7 +35,7 @@ object DialogQr {
         tvSuccess!!.setVisibility(View.GONE)
         ivClose.setOnClickListener { dialog1!!.dismiss() }
         val tvTitle = dialog1!!.findViewById<TextView>(R.id.ticket_title)
-        tvTitle.text = "Collect MyDD Points"
+        tvTitle.text = "Collect Sambal Express"
         val ivQrCode = dialog1!!.findViewById<ImageView>(R.id.iv_qr_code)
         ivQrCode.setImageBitmap(bitmap)
         try {

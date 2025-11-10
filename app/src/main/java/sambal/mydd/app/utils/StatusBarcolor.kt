@@ -65,26 +65,19 @@ object StatusBarcolor {
         // Enable drawing system bar backgrounds
         activity.window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 
-        // Default status bar color and light/dark icons
         val decorView = activity.window.decorView
         var statusBarColor = ContextCompat.getColor(activity, R.color.colorPrimary)
         var lightStatusBar = false
         var drawableRes: Int? = null
 
         when (check) {
-            "gradiant" -> drawableRes = R.drawable.main_gradiant_layout
-            "green_gradient" -> drawableRes = R.drawable.main_gradiant_layout
-            "colorPrimary" -> drawableRes = R.drawable.main_gradiant_layout
-            "yellow_gradient" -> drawableRes = R.drawable.main_gradiant_yellow_layout
-            "yellow" -> drawableRes = R.drawable.main_gradiant_yellow_layout
-            "white" -> drawableRes = R.drawable.main_gradiant_layout
-            "purple" -> drawableRes = R.drawable.main_gradiant_layout
-            "red" -> drawableRes = R.drawable.main_gradiant_layout
-            "black" -> drawableRes = R.drawable.main_gradiant_layout
-            "" -> drawableRes = R.drawable.main_gradiant_layout
+            "gradiant", "green_gradient", "colorPrimary", "white",
+            "purple", "red", "black", "" -> drawableRes = R.drawable.main_gradiant_layout
+            "yellow_gradient", "yellow" -> drawableRes = R.drawable.main_gradiant_yellow_layout
+            "home" -> drawableRes = R.drawable.main_gradiant_white_layout
         }
 
-        // Apply color
+        // Apply color or gradient
         if (drawableRes == null) {
             activity.window.statusBarColor = statusBarColor
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -95,12 +88,15 @@ object StatusBarcolor {
                 }
             }
         } else {
-            // Transparent for gradient backgrounds
+            // Gradient background only for status bar, transparent navigation bar
             activity.window.statusBarColor = Color.TRANSPARENT
+            activity.window.navigationBarColor = Color.TRANSPARENT  // 👈 Always transparent bottom
             activity.window.setBackgroundDrawable(ContextCompat.getDrawable(activity, drawableRes))
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 decorView.systemUiVisibility = decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
         }
     }
+
 }

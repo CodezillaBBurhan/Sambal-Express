@@ -43,7 +43,7 @@ import java.io.IOException
 import java.lang.Exception
 import java.util.ArrayList
 
-class AdapterStorePoints(
+class  AdapterStorePoints(
     private val context: ActivityStorePoints,
     private val list: ArrayList<AgentMainBean>,
     recyclerView: RecyclerView?,

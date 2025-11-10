@@ -29,6 +29,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@drawable/lltranshitory"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -54,7 +55,7 @@
                             android:fontFamily="@font/volte_medium"
                             android:gravity="center"
                             android:text="Total Points"
-                            android:textColor="@color/orginal_yellow"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_13sdp" />
 
                         <TextView
@@ -65,7 +66,7 @@
                             android:layout_marginTop="@dimen/padding_5dp"
                             android:fontFamily="@font/volte_semibold"
                             android:gravity="center"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_16sdp"
                             tools:text="$ 50" />
 
@@ -88,7 +89,7 @@
                             android:fontFamily="@font/volte_medium"
                             android:gravity="center"
                             android:text="Total Visits"
-                            android:textColor="@color/orginal_yellow"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_13sdp" />
 
                         <TextView
@@ -99,7 +100,7 @@
                             android:layout_marginTop="@dimen/padding_5dp"
                             android:fontFamily="@font/volte_semibold"
                             android:gravity="center"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_16sdp"
                             tools:text="$ 50" />
 

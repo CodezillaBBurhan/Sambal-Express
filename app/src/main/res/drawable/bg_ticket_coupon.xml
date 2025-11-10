@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Shadow layer -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#20000000" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    
+    <!-- Main white background -->
+    <item
+        android:bottom="4dp"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    
+    <!-- Gradient border (using stroke) -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:dashWidth="0dp"
+                android:dashGap="0dp">
+                <gradient
+                    android:angle="0"
+                    android:startColor="#007E3A"
+                    android:centerColor="#5A9F5A"
+                    android:endColor="#BD3F4F"
+                    android:type="linear" />
+            </stroke>
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    
+    <!-- Dashed vertical divider line -->
+    <item
+        android:width="2dp"
+        android:gravity="center_vertical|center_horizontal">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:dashWidth="4dp"
+                android:dashGap="4dp"
+                android:color="#BD3F4F" />
+        </shape>
+    </item>
+    
+</layer-list>
+

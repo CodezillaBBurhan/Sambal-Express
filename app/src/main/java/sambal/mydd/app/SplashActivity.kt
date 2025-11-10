@@ -657,11 +657,9 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_MEDIA_IMAGES,
                     permission.BLUETOOTH_SCAN,
                     permission.POST_NOTIFICATIONS,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )
@@ -669,11 +667,9 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_EXTERNAL_STORAGE,
                     permission.WRITE_EXTERNAL_STORAGE,
                     permission.BLUETOOTH_SCAN,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )
@@ -681,10 +677,8 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_EXTERNAL_STORAGE,
                     permission.WRITE_EXTERNAL_STORAGE,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )
@@ -693,9 +687,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun checkPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            val result3 = ContextCompat.checkSelfPermission(
-                applicationContext, permission.READ_MEDIA_IMAGES
-            )
             val result5 = ContextCompat.checkSelfPermission(
                 applicationContext, permission.BLUETOOTH_SCAN
             )
@@ -704,13 +695,15 @@ class SplashActivity : AppCompatActivity() {
                 applicationContext, permission.POST_NOTIFICATIONS
             )
 
-
-            result3 == PackageManager.PERMISSION_GRANTED && result5 == PackageManager.PERMISSION_GRANTED &&
-                    result6 == PackageManager.PERMISSION_GRANTED
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val result3 = ContextCompat.checkSelfPermission(
-                applicationContext, permission.READ_EXTERNAL_STORAGE
+            val result7 = ContextCompat.checkSelfPermission(
+                applicationContext, permission.ACCESS_FINE_LOCATION
             )
+
+
+            result5 == PackageManager.PERMISSION_GRANTED &&
+                    result6 == PackageManager.PERMISSION_GRANTED &&
+                    result7 == PackageManager.PERMISSION_GRANTED
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val result4 = ContextCompat.checkSelfPermission(
                 applicationContext, permission.WRITE_EXTERNAL_STORAGE
             )
@@ -718,16 +711,22 @@ class SplashActivity : AppCompatActivity() {
                 applicationContext, permission.BLUETOOTH_SCAN
             )
 
-            result3 == PackageManager.PERMISSION_GRANTED && result4 == PackageManager.PERMISSION_GRANTED && result5 == PackageManager.PERMISSION_GRANTED
+            val result6 = ContextCompat.checkSelfPermission(
+                applicationContext, permission.ACCESS_FINE_LOCATION
+            )
+
+            result4 == PackageManager.PERMISSION_GRANTED &&
+                    result5 == PackageManager.PERMISSION_GRANTED &&
+                    result6 == PackageManager.PERMISSION_GRANTED
 
         } else {
-            val result3 = ContextCompat.checkSelfPermission(
-                applicationContext, permission.READ_EXTERNAL_STORAGE
-            )
             val result4 = ContextCompat.checkSelfPermission(
                 applicationContext, permission.WRITE_EXTERNAL_STORAGE
             )
-            result3 == PackageManager.PERMISSION_GRANTED && result4 == PackageManager.PERMISSION_GRANTED
+            val result5 = ContextCompat.checkSelfPermission(
+                applicationContext, permission.ACCESS_FINE_LOCATION
+            )
+            result4 == PackageManager.PERMISSION_GRANTED && result5 == PackageManager.PERMISSION_GRANTED
         }
     }
 
@@ -1231,10 +1230,8 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_MEDIA_IMAGES,
                     permission.POST_NOTIFICATIONS,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )
@@ -1242,10 +1239,8 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_EXTERNAL_STORAGE,
                     permission.WRITE_EXTERNAL_STORAGE,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )
@@ -1253,10 +1248,8 @@ class SplashActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    permission.READ_EXTERNAL_STORAGE,
                     permission.WRITE_EXTERNAL_STORAGE,
-                    permission.ACCESS_FINE_LOCATION,
-                    " "
+                    permission.ACCESS_FINE_LOCATION
                 ),
                 PERMISSION_REQUEST_CODE
             )

@@ -54,6 +54,7 @@ import sambal.mydd.app.utils.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import sambal.mydd.app.activity.Webview
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.concurrent.TimeUnit
@@ -355,9 +356,16 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener,
                 finish()
             }
             R.id.sign_up_read_more -> {
-                dialogManager.stopProcessDialog()
+               /* dialogManager.stopProcessDialog()
                 val intent = Intent(this, TermsAndConditionActivity::class.java)
-                startActivity(intent)
+                startActivity(intent)*/
+
+               startActivity(
+                    Intent(this@SignUpActivity, Webview::class.java)
+                        .putExtra("url", "https://www.sambalrewards.com/page/privacy-policy")
+                        .putExtra("title", "Terms & Privacy Policy")
+                        .putExtra("type", "non_direct")
+                )
             }
             R.id.sign_up_forgot_password -> {
                 isFromForgotPassword = true

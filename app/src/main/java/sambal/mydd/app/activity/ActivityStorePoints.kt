@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -15,9 +16,12 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.webkit.MimeTypeMap
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +51,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
 import java.text.DecimalFormat
 import java.util.*
@@ -81,6 +87,15 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
     private var pubNubChat: PubNubChat? = null
     private val REQUEST_CAMERA = 0
     private val SELECT_FILE = 1
+    private var selectedImagePath: String? = null
+    private val pickMediaLauncher =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+            if (uri != null) {
+                handlePickedMedia(uri)
+            } else {
+                Log.d("ActivityStorePoints", "No media selected from picker")
+            }
+        }
 
     override val contentResId: Int
         get() = R.layout.storepoints
@@ -609,14 +624,6 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
         getAllDetails(true)
     }
 
-    private fun galleryIntent() {
-        val galleryIntent = Intent(
-            Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        )
-        startActivityForResult(galleryIntent, SELECT_FILE)
-    }
-
     private fun cameraIntent() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, REQUEST_CAMERA)
@@ -634,18 +641,60 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
         val builder = AlertDialog.Builder(this@ActivityStorePoints)
         builder.setTitle("Add Photo!")
         builder.setItems(items) { dialog, item ->
-            val result = Utility.checkPermission(this@ActivityStorePoints)
-            if (items[item] == "Take Photo") {
-                userChoosenTask = "Take Photo"
-                if (result) cameraIntent()
-            } else if (items[item] == "Choose from Gallery") {
-                userChoosenTask = "Choose from Gallery"
-                if (result) galleryIntent()
-            } else if (items[item] == "Cancel") {
-                dialog.dismiss()
+            when (items[item]) {
+                "Take Photo" -> {
+                    userChoosenTask = "Take Photo"
+                    cameraIntent()
+                }
+                "Choose from Gallery" -> {
+                    userChoosenTask = "Choose from Gallery"
+                    launchPhotoPicker()
+                }
+                "Cancel" -> dialog.dismiss()
             }
         }
         builder.show()
+    }
+
+    private fun launchPhotoPicker() {
+        try {
+            pickMediaLauncher.launch(
+                PickVisualMediaRequest.Builder()
+                    .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                    .build()
+            )
+        } catch (e: Exception) {
+            Log.e("ActivityStorePoints", "Unable to launch photo picker", e)
+            Toast.makeText(this, "Unable to open gallery", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun handlePickedMedia(uri: Uri) {
+        try {
+            val localPath = copyUriToCache(uri)
+            selectedImagePath = localPath
+            Log.d("ActivityStorePoints", "Image selected at $localPath")
+            // TODO: Hook into upload/display flow if needed
+        } catch (e: Exception) {
+            Log.e("ActivityStorePoints", "Failed to handle picked media", e)
+            Toast.makeText(this, "Unable to process selected image", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @Throws(IOException::class)
+    private fun copyUriToCache(uri: Uri): String {
+        val mimeType = contentResolver.getType(uri)
+        val extension = MimeTypeMap.getSingleton()
+            .getExtensionFromMimeType(mimeType)
+            ?.takeIf { it.isNotBlank() } ?: "jpg"
+        val fileName = "picker_${System.currentTimeMillis()}.$extension"
+        val destination = File(cacheDir, fileName)
+        contentResolver.openInputStream(uri)?.use { input ->
+            FileOutputStream(destination).use { output ->
+                input.copyTo(output)
+            }
+        } ?: throw IOException("Unable to open selected image stream")
+        return destination.absolutePath
     }
 
     fun showQRCODE(jsonObject: JSONObject, refreshCard: RefreshCard) {
@@ -791,6 +840,10 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         Log.e("Ress", requestCode.toString() + "")
+        if (resultCode == RESULT_OK && requestCode == SELECT_FILE) {
+            onSelectFromGalleryResult(data)
+            return
+        }
         if (requestCode == 40 && resultCode == RESULT_OK) {
             try {
                 val name = data!!.getStringExtra("name")
@@ -876,6 +929,11 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
             } catch (e: Exception) {
             }
         }
+    }
+
+    private fun onSelectFromGalleryResult(data: Intent?) {
+        val uri = data?.data ?: return
+        handlePickedMedia(uri)
     }
 
     override fun onResume() {

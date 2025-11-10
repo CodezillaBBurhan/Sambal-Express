@@ -6,6 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F9FE"
     android:fitsSystemWindows="true"
     android:forceDarkAllowed="false"
     tools:openDrawer="start">
@@ -29,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left|top"
-            android:layout_marginTop="@dimen/padding_20dp"
             android:orientation="vertical"
             android:weightSum="1">
 

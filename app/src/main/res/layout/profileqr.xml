@@ -50,7 +50,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/volte_bold"
                 android:gravity="center"
-                android:text="Collect MyDD Points"
+                android:text="Collect Sambal Points"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
