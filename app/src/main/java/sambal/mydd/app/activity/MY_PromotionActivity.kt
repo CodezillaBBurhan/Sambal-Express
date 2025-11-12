@@ -20,6 +20,7 @@ import sambal.mydd.app.R
 import sambal.mydd.app.databinding.ActivityMYPromotionBinding
 import sambal.mydd.app.models.MyPromotion.Example
 import sambal.mydd.app.utils.ErrorMessage
+import sambal.mydd.app.constant.MessageConstant
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -112,6 +113,7 @@ class MY_PromotionActivity : BaseActivity() {
             binding!!.shimmerViewContainer.visibility = View.VISIBLE
             binding!!.shimmerViewContainer.startShimmerAnimation()
             binding!!.myPramotionRcv.visibility = View.GONE
+            binding!!.tvNoData.visibility = View.GONE
             val dialogManager = DialogManager()
             if (binding!!.shimmerViewContainer.visibility == View.GONE) {
                 dialogManager.showProcessDialog(this, "", false, null)
@@ -136,6 +138,7 @@ class MY_PromotionActivity : BaseActivity() {
                                 val example = gson.fromJson(obj.toString(), Example::class.java)
                                 if (example.response.promotionDealsList.size > 0) {
                                     binding!!.myPramotionRcv.visibility = View.VISIBLE
+                                    binding!!.tvNoData.visibility = View.GONE
                                     val side_rv_adapter =
                                         My_Promotion_List_Adapter(this@MY_PromotionActivity,
                                             example.response.promotionDealsList,
@@ -149,9 +152,14 @@ class MY_PromotionActivity : BaseActivity() {
                                     binding!!.myPramotionRcv.adapter = side_rv_adapter
                                     side_rv_adapter.notifyDataSetChanged()
                                 } else {
+                                    binding!!.tvNoData.visibility = View.VISIBLE
+                                    binding!!.tvNoData.text =
+                                        getString(R.string.no_promotions_found)
                                     binding!!.myPramotionRcv.visibility = View.GONE
                                 }
                             } else {
+                                binding!!.tvNoData.visibility = View.VISIBLE
+                                binding!!.tvNoData.text = obj.optString("message")
                                 AppUtil.showMsgAlert(binding!!.tvLocation, obj.optString("message"))
                             }
                         } catch (e: Exception) {
@@ -159,9 +167,13 @@ class MY_PromotionActivity : BaseActivity() {
                             binding!!.shimmerViewContainer.visibility = View.GONE
                             binding!!.shimmerViewContainer.stopShimmerAnimation()
                             binding!!.myPramotionRcv.visibility = View.VISIBLE
+                            binding!!.tvNoData.visibility = View.VISIBLE
+                            binding!!.tvNoData.text = getString(R.string.some_thing_went_wrong)
                         }
                     } else {
                         dialogManager.stopProcessDialog()
+                        binding!!.tvNoData.visibility = View.VISIBLE
+                        binding!!.tvNoData.text = getString(R.string.some_thing_went_wrong)
                         Log.e("sendToken", "else is working" + response.code().toString())
                     }
                 }
@@ -169,10 +181,18 @@ class MY_PromotionActivity : BaseActivity() {
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
                     ErrorMessage.E("ON FAILURE > " + t.message)
                     dialogManager.stopProcessDialog()
+                    binding!!.tvNoData.visibility = View.VISIBLE
+                    binding!!.tvNoData.text =
+                        t.message ?: getString(R.string.some_thing_went_wrong)
                     AppUtil.showMsgAlert(binding!!.tvLocation, t.message)
                 }
             })
         } else {
+            binding!!.shimmerViewContainer.stopShimmerAnimation()
+            binding!!.shimmerViewContainer.visibility = View.GONE
+            binding!!.myPramotionRcv.visibility = View.GONE
+            binding!!.tvNoData.visibility = View.VISIBLE
+            binding!!.tvNoData.text = MessageConstant.MESSAGE_INTERNET_CONNECTION
             ErrorMessage.T(this, "No Internet Found!")
         }
     }

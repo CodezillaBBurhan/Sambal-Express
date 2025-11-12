@@ -27,8 +27,8 @@ android {
         applicationId "sambal.mydd.app"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 74
-        versionName "7.4"
+        versionCode 3
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
        // signingConfig signingConfigs.config
         multiDexEnabled true
@@ -52,7 +52,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources false
-            debuggable true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config

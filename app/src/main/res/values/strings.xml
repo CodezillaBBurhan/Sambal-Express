@@ -49,6 +49,7 @@
     <string name="allow">Allow</string>
     <string name="continued">Continue</string>
     <string name="no_internet_connection">Internet not found</string>
+    <string name="no_promotions_found">No promotions found in this area.</string>
 
 
     <string name="near_by_permission_msg1">Please allow</string>

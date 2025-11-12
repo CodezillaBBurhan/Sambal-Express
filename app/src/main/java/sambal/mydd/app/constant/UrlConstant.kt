@@ -15,10 +15,10 @@ interface UrlConstant {
 //        const val BASE_URL = "https://www.dealdio.com/ddapp_v2/"
 
        /* const val BASE_URL = "https://www.dealdio.com/ddapp_v3/"*/
-        const val BASE_URL = "https://staging-ddpoints.mydd.app/ddapp_sambal/"
+      //  const val BASE_URL = "https://staging-ddpoints.mydd.app/ddapp_sambal/"
 
         //Live Base URL
-       // const val BASE_URL = "https://www.sambalrewards.com/ddapp_sambal/"
+        const val BASE_URL = "https://www.sambalrewards.com/ddapp_sambal/"
 
 
 

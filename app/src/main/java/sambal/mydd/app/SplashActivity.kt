@@ -753,7 +753,7 @@ class SplashActivity : AppCompatActivity() {
                     ) {
                         location
                     }
-                    if (ContextCompat.checkSelfPermission(
+                   /* if (ContextCompat.checkSelfPermission(
                             this,
                             permission.ACCESS_BACKGROUND_LOCATION
                         )
@@ -762,7 +762,7 @@ class SplashActivity : AppCompatActivity() {
 
                     } else {
                         requestLocationPermissions()
-                    }
+                    }*/
 
                     try {
                         if (permissionDialog != null) {
