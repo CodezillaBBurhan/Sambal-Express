@@ -39,7 +39,7 @@
                         android:layout_marginRight="@dimen/_2sdp"
                         android:layout_weight="1"
                         android:fontFamily="@font/volte_semibold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/_16sdp"
                         tools:text="ABCD Shop" />
 

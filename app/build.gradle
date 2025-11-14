@@ -27,7 +27,7 @@ android {
         applicationId "sambal.mydd.app"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 3
+        versionCode 5
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
        // signingConfig signingConfigs.config
@@ -35,6 +35,9 @@ android {
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
         vectorDrawables.useSupportLibrary = true
+        
+        // Support for 16 KB page sizes
+        ndkVersion "26.1.10909125"
     }
 
     applicationVariants.all { variant ->
@@ -77,6 +80,15 @@ android {
         coreLibraryDesugaringEnabled false*/
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/license.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/notice.txt', 'META-INF/ASL2.0', 'META-INF/*.kotlin_module']
+        }
     }
 
 }
@@ -162,16 +174,15 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
    /* annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'com.jakewharton:butterknife:10.2.3'*/
+    // Updated to versions with 16 KB page size support
     implementation 'com.github.barteksc:pdfium-android:1.9.0'
    /* implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'*/
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+    // Updated gif library - ensure it supports 16 KB page sizes
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.28'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.makeramen:roundedimageview:2.3.0\''
-    implementation ('com.stripe:stripe-android:6.1.1') {
-        exclude group: 'androidx.support'
-    }
 
     implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
     implementation 'androidx.work:work-runtime:2.7.1' //androidx.work:work-runtime:2.7.0-alpha05

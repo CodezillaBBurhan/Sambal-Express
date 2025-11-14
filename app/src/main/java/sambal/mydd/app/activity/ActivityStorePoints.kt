@@ -103,7 +103,8 @@ class ActivityStorePoints : BaseActivity(), ChatHistoryCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.storepoints)
-        setToolbarWithBackButton_colorprimary("My Wallet")
+        setToolbarWithBackButton_colorprimary("My Rewards")
+//        setToolbarWithBackButton_colorprimary("My Wallet")
         //LocalBroadcastManager.getInstance(ActivityStorePoints.this).registerReceiver(onNotice_refresh, new IntentFilter("refresh"));
         context = this@ActivityStorePoints
         val bundle = intent.extras

@@ -1045,9 +1045,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     if (exclusive_dialog != null) {
                         exclusive_dialog!!.dismiss()
                     }
-                    startActivity(
+                   /* startActivity(
                         Intent(activity, ActivityMyRewards::class.java)
                             .putExtra("name", o!!.optString("storeVouchers"))
+                    )*/
+                    startActivity(
+                        Intent(activity, ActivityStorePoints::class.java)
+                            .putExtra("type", "1")
                     )
                 } catch (e: Exception) {
                 }
@@ -1086,9 +1090,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     if (exclusive_dialog != null) {
                         exclusive_dialog!!.dismiss()
                     }
-                    startActivity(
+                  /*  startActivity(
                         Intent(activity, ActivityMyRewards::class.java)
                             .putExtra("name", o!!.optString("storeVouchers"))
+                    )*/
+                    startActivity(
+                        Intent(activity, ActivityStorePoints::class.java)
+                            .putExtra("type", "1")
                     )
                 } catch (e: Exception) {
                 }

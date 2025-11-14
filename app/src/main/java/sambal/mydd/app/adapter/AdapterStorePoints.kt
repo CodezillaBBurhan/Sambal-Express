@@ -210,7 +210,7 @@ class  AdapterStorePoints(
                                     model.redeemRemarks.split("=".toRegex()).toTypedArray()
                                 holder.binding.tvAgentPointsStart.text = redemRemark[0] + "="
                                 holder.binding.tvAgentPointsEnd.text = redemRemark[1]
-                                holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#ff4a0b"))
+                            //    holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#ff4a0b"))
                             }
                             if (model.userEarnedPoints.equals(
                                     "",
@@ -298,7 +298,7 @@ class  AdapterStorePoints(
                                 Log.e("redeeme", redemRemark.toString() + "")
                                 holder.binding.tvAgentPointsStart.text = redemRemark[0] + "="
                                 holder.binding.tvAgentPointsEnd.text = redemRemark[1]
-                                holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
+                               // holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
                             }
                             holder.binding.tvDonate.setTextColor(Color.parseColor("#FFFFFF"))
                             holder.binding.cherityNameTv.visibility = View.GONE
@@ -362,7 +362,7 @@ class  AdapterStorePoints(
                                 model.redeemRemarks.split("=".toRegex()).toTypedArray()
                             holder.binding.tvAgentPointsStart.text = redemRemark[0] + "="
                             holder.binding.tvAgentPointsEnd.text = redemRemark[1]
-                            holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
+                          //  holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
                         }
                         if (model.userEarnedPoints.equals(
                                 "",
@@ -475,7 +475,7 @@ class  AdapterStorePoints(
                                 Log.e("redeeme", redemRemark.toString() + "")
                                 holder.binding.tvAgentPointsStart.text = redemRemark[0] + "="
                                 holder.binding.tvAgentPointsEnd.text = redemRemark[1]
-                                holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
+                             //   holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
                             }
                             holder.binding.tvDonate.setTextColor(Color.parseColor("#FFFFFF"))
                             holder.binding.tvDonate.text = "Donate"
@@ -556,11 +556,11 @@ class  AdapterStorePoints(
                             Log.e("redeeme", redemRemark.toString() + "")
                             holder.binding.tvAgentPointsStart.text = redemRemark[0] + "="
                             holder.binding.tvAgentPointsEnd.text = redemRemark[1]
-                            holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
+                         //   holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
                         }
                     } catch (e: Exception) {
                     }
-                    holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
+                 //   holder.binding.tvAgentPointsEnd.setTextColor(Color.parseColor("#000000"))
                     val target = model.agentUserTargetVisitCount.toInt()
                     val userDeals = model.agentUserVisitCount.toInt()
                     val total = target - userDeals
