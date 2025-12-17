@@ -37,9 +37,9 @@ object ErrorMessage {
 
     @JvmStatic
     fun E(msg: String?) {
-        if (true) {
+        /*if (true) {
             Log.e("Log.E By Burhan", msg!!)
-        }
+        }*/
     }
 
 
